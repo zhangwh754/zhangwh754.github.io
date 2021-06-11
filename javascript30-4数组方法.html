@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Saiph">
+    
+    <title>
+        
+            JavaScript30-4数组方法 |
+        
+        学习笔记
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"学海无涯，持续努力！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"trigger":"auto","unescape":false,"preload":true},"code_copy":{"enable":true,"style":"default"},"side_tools":{"enable":true},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                学习笔记
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">JavaScript30-4数组方法</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Saiph</span>
+                        
+                            <span class="author-label">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-05-17 12:59:59
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/JavaScript30/">JavaScript30</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Array/">Array</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>727 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>4 分钟</span>
+        </span>
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="JavaScript30个项目-4数组方法"><a href="#JavaScript30个项目-4数组方法" class="headerlink" title="JavaScript30个项目-4数组方法"></a>JavaScript30个项目-4数组方法</h1><h2 id="1、数组方法Js代码"><a href="#1、数组方法Js代码" class="headerlink" title="1、数组方法Js代码"></a>1、数组方法Js代码</h2><h3 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> inventors = [</span><br><span class="line">      &#123; <span class="attr">first</span>: <span class="string">&#x27;Albert&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Einstein&#x27;</span>, <span class="attr">year</span>: <span class="number">1879</span>, <span class="attr">passed</span>: <span class="number">1955</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">first</span>: <span class="string">&#x27;Isaac&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Newton&#x27;</span>, <span class="attr">year</span>: <span class="number">1643</span>, <span class="attr">passed</span>: <span class="number">1727</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">first</span>: <span class="string">&#x27;Galileo&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Galilei&#x27;</span>, <span class="attr">year</span>: <span class="number">1564</span>, <span class="attr">passed</span>: <span class="number">1642</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">first</span>: <span class="string">&#x27;Marie&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Curie&#x27;</span>, <span class="attr">year</span>: <span class="number">1867</span>, <span class="attr">passed</span>: <span class="number">1934</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">first</span>: <span class="string">&#x27;Johannes&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Kepler&#x27;</span>, <span class="attr">year</span>: <span class="number">1571</span>, <span class="attr">passed</span>: <span class="number">1630</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">first</span>: <span class="string">&#x27;Nicolaus&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Copernicus&#x27;</span>, <span class="attr">year</span>: <span class="number">1473</span>, <span class="attr">passed</span>: <span class="number">1543</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">first</span>: <span class="string">&#x27;Max&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Planck&#x27;</span>, <span class="attr">year</span>: <span class="number">1858</span>, <span class="attr">passed</span>: <span class="number">1947</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">first</span>: <span class="string">&#x27;Katherine&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Blodgett&#x27;</span>, <span class="attr">year</span>: <span class="number">1898</span>, <span class="attr">passed</span>: <span class="number">1979</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">first</span>: <span class="string">&#x27;Ada&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Lovelace&#x27;</span>, <span class="attr">year</span>: <span class="number">1815</span>, <span class="attr">passed</span>: <span class="number">1852</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">first</span>: <span class="string">&#x27;Sarah E.&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Goode&#x27;</span>, <span class="attr">year</span>: <span class="number">1855</span>, <span class="attr">passed</span>: <span class="number">1905</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">first</span>: <span class="string">&#x27;Lise&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Meitner&#x27;</span>, <span class="attr">year</span>: <span class="number">1878</span>, <span class="attr">passed</span>: <span class="number">1968</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">first</span>: <span class="string">&#x27;Hanna&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Hammarström&#x27;</span>, <span class="attr">year</span>: <span class="number">1829</span>, <span class="attr">passed</span>: <span class="number">1909</span> &#125;</span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> people = [<span class="string">&#x27;Beck, Glenn&#x27;</span>, <span class="string">&#x27;Becker, Carl&#x27;</span>, <span class="string">&#x27;Beckett, Samuel&#x27;</span>, <span class="string">&#x27;Beddoes, Mick&#x27;</span>, <span class="string">&#x27;Beecher, Henry&#x27;</span>, <span class="string">&#x27;Beethoven, Ludwig&#x27;</span>, <span class="string">&#x27;Begin, Menachem&#x27;</span>, <span class="string">&#x27;Belloc, Hilaire&#x27;</span>, <span class="string">&#x27;Bellow, Saul&#x27;</span>, <span class="string">&#x27;Benchley, Robert&#x27;</span>, <span class="string">&#x27;Benenson, Peter&#x27;</span>, <span class="string">&#x27;Ben-Gurion, David&#x27;</span>, <span class="string">&#x27;Benjamin, Walter&#x27;</span>, <span class="string">&#x27;Benn, Tony&#x27;</span>, <span class="string">&#x27;Bennington, Chester&#x27;</span>, <span class="string">&#x27;Benson, Leana&#x27;</span>, <span class="string">&#x27;Bent, Silas&#x27;</span>, <span class="string">&#x27;Bentsen, Lloyd&#x27;</span>, <span class="string">&#x27;Berger, Ric&#x27;</span>, <span class="string">&#x27;Bergman, Ingmar&#x27;</span>, <span class="string">&#x27;Berio, Luciano&#x27;</span>, <span class="string">&#x27;Berle, Milton&#x27;</span>, <span class="string">&#x27;Berlin, Irving&#x27;</span>, <span class="string">&#x27;Berne, Eric&#x27;</span>, <span class="string">&#x27;Bernhard, Sandra&#x27;</span>, <span class="string">&#x27;Berra, Yogi&#x27;</span>, <span class="string">&#x27;Berry, Halle&#x27;</span>, <span class="string">&#x27;Berry, Wendell&#x27;</span>, <span class="string">&#x27;Bethea, Erin&#x27;</span>, <span class="string">&#x27;Bevan, Aneurin&#x27;</span>, <span class="string">&#x27;Bevel, Ken&#x27;</span>, <span class="string">&#x27;Biden, Joseph&#x27;</span>, <span class="string">&#x27;Bierce, Ambrose&#x27;</span>, <span class="string">&#x27;Biko, Steve&#x27;</span>, <span class="string">&#x27;Billings, Josh&#x27;</span>, <span class="string">&#x27;Biondo, Frank&#x27;</span>, <span class="string">&#x27;Birrell, Augustine&#x27;</span>, <span class="string">&#x27;Black, Elk&#x27;</span>, <span class="string">&#x27;Blair, Robert&#x27;</span>, <span class="string">&#x27;Blair, Tony&#x27;</span>, <span class="string">&#x27;Blake, William&#x27;</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Array.prototype.filter()</span></span><br><span class="line">    <span class="comment">// 1. Filter the list of inventors for those who were born in the 1500&#x27;s</span></span><br><span class="line">    <span class="keyword">const</span> filterfifteen = inventors.filter( <span class="function"><span class="params">inventer</span> =&gt;</span> inventer.year &gt;= <span class="number">1500</span> &amp;&amp; inventer.year &lt; <span class="number">1600</span>);</span><br><span class="line">    <span class="built_in">console</span>.table(filterfifteen);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Array.prototype.map()</span></span><br><span class="line">    <span class="comment">// 2. Give us an array of the inventors first and last names</span></span><br><span class="line">    <span class="keyword">const</span> mapfullname = inventors.map( <span class="function"><span class="params">inventor</span> =&gt;</span> <span class="string">`<span class="subst">$&#123;inventor.first&#125;</span> <span class="subst">$&#123;inventor.last&#125;</span>`</span>);</span><br><span class="line">    <span class="built_in">console</span>.table(mapfullname);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Array.prototype.sort()</span></span><br><span class="line">    <span class="comment">// 3. Sort the inventors by birthdate, oldest to youngest</span></span><br><span class="line">    <span class="keyword">const</span> sortbirth = inventors.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a.year - b.year);</span><br><span class="line">    <span class="built_in">console</span>.table(sortbirth);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Array.prototype.reduce()</span></span><br><span class="line">    <span class="comment">// 4. How many years did all the inventors live all together?</span></span><br><span class="line">    <span class="keyword">const</span> reduceage = inventors.reduce(<span class="function">(<span class="params">sum, inventer</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> sum += (inventer.passed - inventer.year);</span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(reduceage);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5. Sort the inventors by years lived</span></span><br><span class="line">    <span class="keyword">const</span> sortage = inventors.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> (a.passed - a.year) - (b.passed - b.year));</span><br><span class="line">    <span class="built_in">console</span>.table(sortage);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 6. create a list of Boulevards in Paris that contain &#x27;de&#x27; anywhere in the name</span></span><br><span class="line">    <span class="comment">// https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// const category = document.querySelector(&#x27;.mw-category&#x27;);</span></span><br><span class="line">    <span class="comment">// const links = Array.from(category.querySelectorAll(&#x27;a&#x27;));</span></span><br><span class="line">    <span class="comment">// const de = links</span></span><br><span class="line">    <span class="comment">//                 .map(link =&gt; link.innerText)</span></span><br><span class="line">    <span class="comment">//                 .filter(streename =&gt; streename.includes(&#x27;de&#x27;));</span></span><br><span class="line">    <span class="comment">// console.table(de);</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 7. sort Exercise</span></span><br><span class="line">    <span class="comment">// Sort the people alphabetically by last name</span></span><br><span class="line">    <span class="keyword">const</span> sortlastname = people.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> [afirst, alast] = a.split(<span class="string">&#x27;, &#x27;</span>);</span><br><span class="line">      <span class="keyword">const</span> [bfirst, blast] = b.split(<span class="string">&#x27;, &#x27;</span>);</span><br><span class="line">      <span class="keyword">return</span> alast &gt; blast ? <span class="number">1</span> : -<span class="number">1</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="built_in">console</span>.table(sortlastname);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 8. Reduce Exercise</span></span><br><span class="line">    <span class="comment">// Sum up the instances of each of these</span></span><br><span class="line">    <span class="keyword">const</span> data = [<span class="string">&#x27;car&#x27;</span>, <span class="string">&#x27;car&#x27;</span>, <span class="string">&#x27;truck&#x27;</span>, <span class="string">&#x27;truck&#x27;</span>, <span class="string">&#x27;bike&#x27;</span>, <span class="string">&#x27;walk&#x27;</span>, <span class="string">&#x27;car&#x27;</span>, <span class="string">&#x27;van&#x27;</span>, <span class="string">&#x27;bike&#x27;</span>, <span class="string">&#x27;walk&#x27;</span>, <span class="string">&#x27;car&#x27;</span>, <span class="string">&#x27;van&#x27;</span>, <span class="string">&#x27;car&#x27;</span>, <span class="string">&#x27;truck&#x27;</span> ];</span><br><span class="line">    <span class="keyword">const</span> mapsum = data.reduce(<span class="function">(<span class="params">obj, item</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span>(!obj[item])&#123;</span><br><span class="line">        obj[item] = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      obj[item]++;</span><br><span class="line">      <span class="keyword">return</span> obj;</span><br><span class="line">    &#125;, &#123;&#125;)</span><br><span class="line">    <span class="built_in">console</span>.log(mapsum);</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、实现原理"><a href="#2、实现原理" class="headerlink" title="2、实现原理"></a>2、实现原理</h2><p>数组的<code>map</code>,<code>filter</code>,<code>sort</code>,<code>reduce</code>方法</p>
+<h2 id="3、用到的我目前待加强知识点"><a href="#3、用到的我目前待加强知识点" class="headerlink" title="3、用到的我目前待加强知识点"></a>3、用到的我目前待加强知识点</h2><ol>
+<li><code>reduce</code>方法</li>
+<li><code>sort</code>方法</li>
+</ol>
+
+        </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/javascript30-5%E5%BC%B9%E6%80%A7%E7%85%A7%E7%89%87%E5%A2%99.html"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">JavaScript30-5弹性照片墙</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/javascript30-3js%E6%8E%A7%E5%88%B6%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.html"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">JavaScript30-3js控制全局变量</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Saiph</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript30%E4%B8%AA%E9%A1%B9%E7%9B%AE-4%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">JavaScript30个项目-4数组方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95Js%E4%BB%A3%E7%A0%81"><span class="nav-number">1.1.</span> <span class="nav-text">1、数组方法Js代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#js%E4%BB%A3%E7%A0%81"><span class="nav-number">1.1.1.</span> <span class="nav-text">js代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">2、实现原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E7%94%A8%E5%88%B0%E7%9A%84%E6%88%91%E7%9B%AE%E5%89%8D%E5%BE%85%E5%8A%A0%E5%BC%BA%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="nav-number">1.3.</span> <span class="nav-text">3、用到的我目前待加强知识点</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>

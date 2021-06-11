@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Saiph">
+    
+    <title>
+        
+            JavaScript30-26自定义吸附下拉菜单 |
+        
+        学习笔记
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"学海无涯，持续努力！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"trigger":"auto","unescape":false,"preload":true},"code_copy":{"enable":true,"style":"default"},"side_tools":{"enable":true},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                学习笔记
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">JavaScript30-26自定义吸附下拉菜单</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Saiph</span>
+                        
+                            <span class="author-label">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-06-10 09:45:30
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/JavaScript30/">JavaScript30</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>310 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+        </span>
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="JavaScript30个项目-26自定义吸附下拉菜单"><a href="#JavaScript30个项目-26自定义吸附下拉菜单" class="headerlink" title="JavaScript30个项目-26自定义吸附下拉菜单"></a>JavaScript30个项目-26自定义吸附下拉菜单</h1><h2 id="1、代码"><a href="#1、代码" class="headerlink" title="1、代码"></a>1、代码</h2><h3 id="在线浏览"><a href="#在线浏览" class="headerlink" title="在线浏览"></a>在线浏览</h3><p><a class="link"   target="_blank" rel="noopener" href="https://codepen.io/zhangwh754/pen/PopdzOL" >自定义吸附下拉菜单 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> nav = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;nav&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> navLists = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.cool &gt; li&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> background = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.dropdownBackground&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleEnter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.classList.add(<span class="string">&#x27;trigger-enter&#x27;</span>)</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">this</span>.classList.contains(<span class="string">&#x27;trigger-enter&#x27;</span>))&#123;</span><br><span class="line">            <span class="built_in">this</span>.classList.add(<span class="string">&#x27;trigger-enter-active&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">150</span>)</span><br><span class="line">    <span class="keyword">const</span> dropdownRect = <span class="built_in">this</span>.querySelector(<span class="string">&#x27;.dropdown&#x27;</span>).getBoundingClientRect()</span><br><span class="line">    <span class="keyword">const</span> navRect = nav.getBoundingClientRect()</span><br><span class="line">    <span class="keyword">const</span> backgroundRect = &#123;</span><br><span class="line">        <span class="attr">width</span>: dropdownRect.width,</span><br><span class="line">        <span class="attr">height</span>: dropdownRect.height,</span><br><span class="line">        <span class="attr">top</span>: dropdownRect.top - navRect.top,</span><br><span class="line">        <span class="attr">left</span>: dropdownRect.left - navRect.left</span><br><span class="line">    &#125;</span><br><span class="line">    background.classList.add(<span class="string">&#x27;open&#x27;</span>)</span><br><span class="line">    background.style.setProperty(<span class="string">&#x27;width&#x27;</span>, <span class="string">`<span class="subst">$&#123;backgroundRect.width&#125;</span>px`</span>)</span><br><span class="line">    background.style.setProperty(<span class="string">&#x27;height&#x27;</span>, <span class="string">`<span class="subst">$&#123;backgroundRect.height&#125;</span>px`</span>)</span><br><span class="line">    background.style.setProperty(<span class="string">&#x27;transform&#x27;</span>, <span class="string">`translate(<span class="subst">$&#123;backgroundRect.left&#125;</span>px,<span class="subst">$&#123;backgroundRect.top&#125;</span>px)`</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleLeave</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.classList.remove(<span class="string">&#x27;trigger-enter&#x27;</span>, <span class="string">&#x27;trigger-enter-active&#x27;</span>)</span><br><span class="line">    background.classList.remove(<span class="string">&#x27;open&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">navLists.forEach(<span class="function"><span class="params">navList</span> =&gt;</span> navList.addEventListener(<span class="string">&#x27;mouseenter&#x27;</span>, handleEnter))</span><br><span class="line">navLists.forEach(<span class="function"><span class="params">navList</span> =&gt;</span> navList.addEventListener(<span class="string">&#x27;mouseleave&#x27;</span>, handleLeave))</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、实现原理"><a href="#2、实现原理" class="headerlink" title="2、实现原理"></a>2、实现原理</h2><ol>
+<li>给li增加css样式,让下拉框显示</li>
+<li>给背景矩形宽,高,Top,Left赋值</li>
+</ol>
+<h2 id="3、Tip"><a href="#3、Tip" class="headerlink" title="3、Tip"></a>3、Tip</h2><ol>
+<li>将显示效果<code>拆分</code>为display: none =&gt; block, opacity: 0 =&gt; 1,可以让显示效果有渐变</li>
+<li>给定时器增加一个判断,防止用户快速切换时,添加了错误的class</li>
+<li>增加对nav的Top,left的判断,防止背景矩形位置错误</li>
+</ol>
+
+        </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/javascript30-27%E5%B7%A6%E5%8F%B3%E6%8B%96%E5%8A%A8%E6%95%88%E6%9E%9C.html"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">JavaScript30-27左右拖动效果</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/javascript30-25%E7%90%86%E8%A7%A3%E4%BA%8B%E4%BB%B6.html"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">JavaScript30-25理解事件</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Saiph</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript30%E4%B8%AA%E9%A1%B9%E7%9B%AE-26%E8%87%AA%E5%AE%9A%E4%B9%89%E5%90%B8%E9%99%84%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95"><span class="nav-number">1.</span> <span class="nav-text">JavaScript30个项目-26自定义吸附下拉菜单</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E4%BB%A3%E7%A0%81"><span class="nav-number">1.1.</span> <span class="nav-text">1、代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E7%BA%BF%E6%B5%8F%E8%A7%88"><span class="nav-number">1.1.1.</span> <span class="nav-text">在线浏览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js%E4%BB%A3%E7%A0%81"><span class="nav-number">1.1.2.</span> <span class="nav-text">js代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">2、实现原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81Tip"><span class="nav-number">1.3.</span> <span class="nav-text">3、Tip</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>
