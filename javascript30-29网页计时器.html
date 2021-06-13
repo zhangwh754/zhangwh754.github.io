@@ -9,7 +9,7 @@
     
     <title>
         
-            JavaScript30-27左右拖动效果 |
+            JavaScript30-29网页计时器 |
         
         学习笔记
     </title>
@@ -137,7 +137,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">JavaScript30-27左右拖动效果</span>
+            <span class="title-hover-animation">JavaScript30-29网页计时器</span>
         </div>
 
         
@@ -155,7 +155,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-06-11 16:32:30
+        <i class="fas fa-edit"></i>&nbsp;2021-06-13 14:31:30
     </span>
     
     
@@ -174,7 +174,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>231 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>279 字</span>
         </span>
     
     
@@ -191,19 +191,17 @@
         
 
         <div class="article-content markdown-body">
-            <h1 id="JavaScript30个项目-27左右拖动效果"><a href="#JavaScript30个项目-27左右拖动效果" class="headerlink" title="JavaScript30个项目-27左右拖动效果"></a>JavaScript30个项目-27左右拖动效果</h1><h2 id="1、代码"><a href="#1、代码" class="headerlink" title="1、代码"></a>1、代码</h2><h3 id="在线浏览"><a href="#在线浏览" class="headerlink" title="在线浏览"></a>在线浏览</h3><p><a class="link"   target="_blank" rel="noopener" href="https://codepen.io/zhangwh754/pen/mdWzyNV" >左右拖动效果 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> startX;</span><br><span class="line"><span class="keyword">let</span> isDown = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">let</span> startLeft;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> items = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.items&#x27;</span>)</span><br><span class="line">items.addEventListener(<span class="string">&#x27;mousedown&#x27;</span>, <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">  isDown = <span class="literal">true</span>;</span><br><span class="line">  items.classList.add(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">  startX = e.pageX - items.offsetLeft;</span><br><span class="line">  startLeft = items.scrollLeft;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">items.addEventListener(<span class="string">&#x27;mouseup&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  isDown = <span class="literal">false</span>;</span><br><span class="line">  items.classList.remove(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">items.addEventListener(<span class="string">&#x27;mouseleave&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  isDown = <span class="literal">false</span>;</span><br><span class="line">  items.classList.remove(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">items.addEventListener(<span class="string">&#x27;mousemove&#x27;</span>, <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span>(!isDown) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">let</span> x = e.pageX - items.offsetLeft;</span><br><span class="line">  <span class="keyword">const</span> slideMove = (x- startX) * <span class="number">2</span>;</span><br><span class="line">  items.scrollLeft = startLeft - slideMove;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+            <h1 id="JavaScript30个项目-29网页计时器"><a href="#JavaScript30个项目-29网页计时器" class="headerlink" title="JavaScript30个项目-29网页计时器"></a>JavaScript30个项目-29网页计时器</h1><h2 id="1、代码"><a href="#1、代码" class="headerlink" title="1、代码"></a>1、代码</h2><h3 id="在线浏览"><a href="#在线浏览" class="headerlink" title="在线浏览"></a>在线浏览</h3><p><a class="link"   target="_blank" rel="noopener" href="https://codepen.io/zhangwh754/pen/abJQOwM" >网页计时器 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> displayTimeLeft = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.display__time-left&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> displayTimeEnd = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.display__end-time&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> timerButtons = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.timer__button&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> countTime;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params">seconds</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">clearInterval</span>(countTime);</span><br><span class="line">  <span class="keyword">const</span> now = <span class="built_in">Date</span>.now();</span><br><span class="line">  <span class="keyword">const</span> then = now + seconds * <span class="number">1000</span>;</span><br><span class="line">  showTime(seconds);</span><br><span class="line">  showEndTime(then);</span><br><span class="line">  countTime = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> leftSeconds = <span class="built_in">Math</span>.round((then - <span class="built_in">Date</span>.now()) / <span class="number">1000</span>);</span><br><span class="line">    <span class="keyword">if</span>(leftSeconds &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="built_in">clearInterval</span>(countTime);</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    showTime(leftSeconds);</span><br><span class="line">  &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showTime</span>(<span class="params">leftTime</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> leftMinutes = <span class="built_in">Math</span>.floor(leftTime / <span class="number">60</span>);</span><br><span class="line">  <span class="keyword">let</span> leftSeconds = leftTime % <span class="number">60</span>;</span><br><span class="line">  displayTimeLeft.textContent = <span class="string">`<span class="subst">$&#123;leftMinutes&#125;</span>:<span class="subst">$&#123;leftSeconds &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> : <span class="string">&#x27;&#x27;</span>&#125;</span><span class="subst">$&#123;leftSeconds&#125;</span>`</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showEndTime</span>(<span class="params">endTime</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> end = <span class="keyword">new</span> <span class="built_in">Date</span>(endTime);</span><br><span class="line">  <span class="keyword">let</span> leftHours = end.getHours();</span><br><span class="line">  <span class="keyword">let</span> leftMinutes = end.getMinutes();</span><br><span class="line">  displayTimeEnd.textContent = <span class="string">`将于 <span class="subst">$&#123;leftHours&#125;</span>:<span class="subst">$&#123;leftMinutes &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> : <span class="string">&#x27;&#x27;</span>&#125;</span><span class="subst">$&#123;leftMinutes&#125;</span> 结束`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">btnShowTime</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> seconds = <span class="built_in">this</span>.dataset.time;</span><br><span class="line">  timer(seconds);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myShowTime</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  e.preventDefault();</span><br><span class="line">  <span class="keyword">let</span> minutes = <span class="built_in">this</span>.minutes.value;</span><br><span class="line">  timer(minutes * <span class="number">60</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">timerButtons.forEach(<span class="function"><span class="params">timerButton</span> =&gt;</span> timerButton.addEventListener(<span class="string">&#x27;click&#x27;</span>, btnShowTime))</span><br><span class="line"><span class="built_in">document</span>.customForm.addEventListener(<span class="string">&#x27;submit&#x27;</span>, myShowTime)</span><br></pre></td></tr></table></figure>
 
 <h2 id="2、实现原理"><a href="#2、实现原理" class="headerlink" title="2、实现原理"></a>2、实现原理</h2><ol>
-<li>判断鼠标是否按下/在外围内</li>
-<li>如果满足条件,首先获得点击位置距离父盒子的左距离</li>
-<li>再同样获得拖动区域的左距离</li>
-<li>相减获得拖动的距离,赋值给scrollLeft属性达成拖动</li>
-<li>获得每次点击的scrollLeft,不会bug</li>
+<li>输入的数字与当前时间相加</li>
+<li>设置定时器,每秒减1</li>
 </ol>
-<h2 id="3、用到的我目前待加强知识点"><a href="#3、用到的我目前待加强知识点" class="headerlink" title="3、用到的我目前待加强知识点"></a>3、用到的我目前待加强知识点</h2><ol>
-<li>页面的坐标</li>
-<li>scroll事件/属性</li>
+<h2 id="3、Tip"><a href="#3、Tip" class="headerlink" title="3、Tip"></a>3、Tip</h2><ol>
+<li>表单有默认的事件提交会刷新页面</li>
+<li>模板字符串可以在里面用三目表达式</li>
+<li>new Date对象的gethours()和getMinutes()方法</li>
 </ol>
 
         </div>
@@ -213,29 +211,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/javascript30-29%E7%BD%91%E9%A1%B5%E8%AE%A1%E6%97%B6%E5%99%A8.html"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">JavaScript30-29网页计时器</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/javascript30-26%E8%87%AA%E5%AE%9A%E4%B9%89%E5%90%B8%E9%99%84%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95.html"
+                           href="/javascript30-27%E5%B7%A6%E5%8F%B3%E6%8B%96%E5%8A%A8%E6%95%88%E6%9E%9C.html"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">JavaScript30-26自定义吸附下拉菜单</span>
+                                <span class="post-nav-title-item">JavaScript30-27左右拖动效果</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -344,7 +327,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript30%E4%B8%AA%E9%A1%B9%E7%9B%AE-27%E5%B7%A6%E5%8F%B3%E6%8B%96%E5%8A%A8%E6%95%88%E6%9E%9C"><span class="nav-number">1.</span> <span class="nav-text">JavaScript30个项目-27左右拖动效果</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E4%BB%A3%E7%A0%81"><span class="nav-number">1.1.</span> <span class="nav-text">1、代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E7%BA%BF%E6%B5%8F%E8%A7%88"><span class="nav-number">1.1.1.</span> <span class="nav-text">在线浏览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js%E4%BB%A3%E7%A0%81"><span class="nav-number">1.1.2.</span> <span class="nav-text">js代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">2、实现原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E7%94%A8%E5%88%B0%E7%9A%84%E6%88%91%E7%9B%AE%E5%89%8D%E5%BE%85%E5%8A%A0%E5%BC%BA%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="nav-number">1.3.</span> <span class="nav-text">3、用到的我目前待加强知识点</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript30%E4%B8%AA%E9%A1%B9%E7%9B%AE-29%E7%BD%91%E9%A1%B5%E8%AE%A1%E6%97%B6%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">JavaScript30个项目-29网页计时器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E4%BB%A3%E7%A0%81"><span class="nav-number">1.1.</span> <span class="nav-text">1、代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E7%BA%BF%E6%B5%8F%E8%A7%88"><span class="nav-number">1.1.1.</span> <span class="nav-text">在线浏览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js%E4%BB%A3%E7%A0%81"><span class="nav-number">1.1.2.</span> <span class="nav-text">js代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">2、实现原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81Tip"><span class="nav-number">1.3.</span> <span class="nav-text">3、Tip</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
