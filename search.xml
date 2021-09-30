@@ -66,22 +66,36 @@
       </tags>
   </entry>
   <entry>
-    <title>JavaScript30-13图片滚动滑入</title>
-    <url>/javascript30-13%E5%9B%BE%E7%89%87%E6%BB%9A%E5%8A%A8%E6%BB%91%E5%85%A5.html</url>
-    <content><![CDATA[<h1 id="JavaScript30个项目-13图片滚动滑入"><a href="#JavaScript30个项目-13图片滚动滑入" class="headerlink" title="JavaScript30个项目-13图片滚动滑入"></a>JavaScript30个项目-13图片滚动滑入</h1><h2 id="1、代码"><a href="#1、代码" class="headerlink" title="1、代码"></a>1、代码</h2><h3 id="在线浏览"><a href="#在线浏览" class="headerlink" title="在线浏览"></a>在线浏览</h3><p><a class="link"   href="https://codepen.io/zhangwh754/pen/NWpjbaJ" >图片滚动滑入 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> images = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.slide-in&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">checkSlide</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">      images.forEach(<span class="function"><span class="params">image</span> =&gt;</span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">const</span> scrolled = <span class="built_in">window</span>.scrollY + <span class="built_in">window</span>.innerHeight;</span><br><span class="line">        <span class="keyword">const</span> imageHalf = image.offsetTop + (image.height / <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">const</span> imageBottom = image.offsetTop + image.height;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> isHalfShown = scrolled &gt; imageHalf;</span><br><span class="line">        <span class="keyword">let</span> isNotScrolledPast = <span class="built_in">window</span>.scrollY &lt; imageBottom;</span><br><span class="line">        <span class="keyword">if</span>(isHalfShown &amp;&amp; isNotScrolledPast)&#123;</span><br><span class="line">          image.classList.add(<span class="string">&#x27;active&#x27;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          image.classList.remove(<span class="string">&#x27;active&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">&#x27;scroll&#x27;</span>, checkSlide);</span><br></pre></td></tr></table></figure>
+    <title>JavaScript30-16随鼠标移动的阴影</title>
+    <url>/javascript30-16%E9%9A%8F%E9%BC%A0%E6%A0%87%E7%A7%BB%E5%8A%A8%E7%9A%84%E9%98%B4%E5%BD%B1.html</url>
+    <content><![CDATA[<h1 id="JavaScript30个项目-16随鼠标移动的阴影"><a href="#JavaScript30个项目-16随鼠标移动的阴影" class="headerlink" title="JavaScript30个项目-16随鼠标移动的阴影"></a>JavaScript30个项目-16随鼠标移动的阴影</h1><h2 id="1、代码"><a href="#1、代码" class="headerlink" title="1、代码"></a>1、代码</h2><h3 id="在线浏览"><a href="#在线浏览" class="headerlink" title="在线浏览"></a>在线浏览</h3><p><a class="link"   href="https://codepen.io/zhangwh754/pen/vYxJWyR" >随鼠标移动的阴影 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> code = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.hero&#x27;</span>);</span><br><span class="line">  <span class="keyword">const</span> text = code.querySelector(<span class="string">&#x27;h1&#x27;</span>);</span><br><span class="line">  <span class="keyword">const</span> r = <span class="number">200</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">shadow</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> &#123;<span class="attr">offsetWidth</span>: width,<span class="attr">offsetHeight</span>: height&#125; = code;</span><br><span class="line">    <span class="keyword">let</span> &#123; <span class="attr">offsetX</span>: x, <span class="attr">offsetY</span>: y &#125; = e;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span> !== e.target) &#123;</span><br><span class="line">      x = x + e.target.offsetLeft;</span><br><span class="line">      y = y + e.target.offsetTop;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> xR = <span class="built_in">Math</span>.floor(x / width * r - r / <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">let</span> yR = <span class="built_in">Math</span>.floor(y / height * r - r / <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">    text.style.textShadow = <span class="string">`</span></span><br><span class="line"><span class="string">    <span class="subst">$&#123;xR&#125;</span>px <span class="subst">$&#123;yR&#125;</span>px 10px rgba(200,0,0,1)</span></span><br><span class="line"><span class="string">    `</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  code.addEventListener(<span class="string">&#x27;mousemove&#x27;</span>, shadow);</span><br></pre></td></tr></table></figure>
 
 <h2 id="2、实现原理"><a href="#2、实现原理" class="headerlink" title="2、实现原理"></a>2、实现原理</h2><ol>
-<li>监听滚轮事件</li>
-<li>根据<code>window.scrollY</code>和<code>window.innerHeight</code>判断目前处在页面的位置,与图片位置作比较,给图片对象增加或删除css类</li>
-</ol>
-<h2 id="3、用到的我目前待加强知识点"><a href="#3、用到的我目前待加强知识点" class="headerlink" title="3、用到的我目前待加强知识点"></a>3、用到的我目前待加强知识点</h2><ol>
-<li>鼠标滚轮的属性</li>
+<li>计算鼠标与网页边框的偏移量</li>
 </ol>
 ]]></content>
       <tags>
         <tag>JavaScript30</tag>
-        <tag>滚轮</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript30-15本地清单</title>
+    <url>/javascript30-15%E6%9C%AC%E5%9C%B0%E6%B8%85%E5%8D%95.html</url>
+    <content><![CDATA[<h1 id="JavaScript30个项目-15本地清单"><a href="#JavaScript30个项目-15本地清单" class="headerlink" title="JavaScript30个项目-15本地清单"></a>JavaScript30个项目-15本地清单</h1><h2 id="1、js代码"><a href="#1、js代码" class="headerlink" title="1、js代码"></a>1、js代码</h2><h3 id="在线浏览"><a href="#在线浏览" class="headerlink" title="在线浏览"></a>在线浏览</h3><p><a class="link"   href="https://codepen.io/zhangwh754/pen/RwpgyLP" >本地清单 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> addItems = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.add-items&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> itemsList = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.plates&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> items = <span class="built_in">JSON</span>.parse(<span class="built_in">localStorage</span>.getItem(<span class="string">&#x27;items&#x27;</span>)) || [];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addItem</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  e.preventDefault();</span><br><span class="line">  <span class="keyword">const</span> text = addItems.querySelector(<span class="string">&#x27;[name=item]&#x27;</span>).value</span><br><span class="line">  <span class="keyword">let</span> item = &#123;</span><br><span class="line">    <span class="attr">name</span>: text,</span><br><span class="line">    <span class="attr">done</span>: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">  items.push(item);</span><br><span class="line">  showItem(items, itemsList);</span><br><span class="line">  <span class="built_in">localStorage</span>.setItem(<span class="string">&#x27;items&#x27;</span>, <span class="built_in">JSON</span>.stringify(items));</span><br><span class="line">  addItems.reset();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showItem</span>(<span class="params">items=[], itemsList</span>)</span>&#123;</span><br><span class="line">  itemsList.innerHTML = items.map(<span class="function">(<span class="params">item, i</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`</span></span><br><span class="line"><span class="string">      &lt;li type=&quot;checkbox&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;input type=&quot;checkbox&quot; data-index=<span class="subst">$&#123;i&#125;</span> id=&quot;item<span class="subst">$&#123;i&#125;</span>&quot; <span class="subst">$&#123;item.done ? <span class="string">&#x27;checked&#x27;</span> : <span class="string">&#x27;&#x27;</span>&#125;</span> /&gt;</span></span><br><span class="line"><span class="string">        &lt;label for=&quot;item<span class="subst">$&#123;i&#125;</span>&quot;&gt;<span class="subst">$&#123;item.name&#125;</span>&lt;/label&gt;  </span></span><br><span class="line"><span class="string">      &lt;/li&gt;</span></span><br><span class="line"><span class="string">    `</span>;</span><br><span class="line">  &#125;).join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toggleChoose</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(e.target.matches(<span class="string">&#x27;label&#x27;</span>))<span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">const</span> el = e.target;</span><br><span class="line">  <span class="keyword">const</span> index = el.dataset.index;</span><br><span class="line">  items[index].done = !items[index].done;</span><br><span class="line">  <span class="built_in">localStorage</span>.setItem(<span class="string">&#x27;items&#x27;</span>, <span class="built_in">JSON</span>.stringify(items));</span><br><span class="line">  showItem(items, itemsList);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">showItem(items, itemsList);</span><br><span class="line">addItems.addEventListener(<span class="string">&#x27;submit&#x27;</span>, addItem);</span><br><span class="line">itemsList.addEventListener(<span class="string">&#x27;click&#x27;</span>, toggleChoose);</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、实现原理"><a href="#2、实现原理" class="headerlink" title="2、实现原理"></a>2、实现原理</h2><ol>
+<li>存储数组到localstorage</li>
+</ol>
+<h2 id="3、用到的我目前待加强知识点"><a href="#3、用到的我目前待加强知识点" class="headerlink" title="3、用到的我目前待加强知识点"></a>3、用到的我目前待加强知识点</h2><ol>
+<li>localstorage</li>
+<li>监听外层元素,事件委托</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>JavaScript30</tag>
+        <tag>localStorage</tag>
       </tags>
   </entry>
   <entry>
@@ -114,36 +128,22 @@
       </tags>
   </entry>
   <entry>
-    <title>JavaScript30-15本地清单</title>
-    <url>/javascript30-15%E6%9C%AC%E5%9C%B0%E6%B8%85%E5%8D%95.html</url>
-    <content><![CDATA[<h1 id="JavaScript30个项目-15本地清单"><a href="#JavaScript30个项目-15本地清单" class="headerlink" title="JavaScript30个项目-15本地清单"></a>JavaScript30个项目-15本地清单</h1><h2 id="1、js代码"><a href="#1、js代码" class="headerlink" title="1、js代码"></a>1、js代码</h2><h3 id="在线浏览"><a href="#在线浏览" class="headerlink" title="在线浏览"></a>在线浏览</h3><p><a class="link"   href="https://codepen.io/zhangwh754/pen/RwpgyLP" >本地清单 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> addItems = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.add-items&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> itemsList = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.plates&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> items = <span class="built_in">JSON</span>.parse(<span class="built_in">localStorage</span>.getItem(<span class="string">&#x27;items&#x27;</span>)) || [];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addItem</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  e.preventDefault();</span><br><span class="line">  <span class="keyword">const</span> text = addItems.querySelector(<span class="string">&#x27;[name=item]&#x27;</span>).value</span><br><span class="line">  <span class="keyword">let</span> item = &#123;</span><br><span class="line">    <span class="attr">name</span>: text,</span><br><span class="line">    <span class="attr">done</span>: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">  items.push(item);</span><br><span class="line">  showItem(items, itemsList);</span><br><span class="line">  <span class="built_in">localStorage</span>.setItem(<span class="string">&#x27;items&#x27;</span>, <span class="built_in">JSON</span>.stringify(items));</span><br><span class="line">  addItems.reset();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showItem</span>(<span class="params">items=[], itemsList</span>)</span>&#123;</span><br><span class="line">  itemsList.innerHTML = items.map(<span class="function">(<span class="params">item, i</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`</span></span><br><span class="line"><span class="string">      &lt;li type=&quot;checkbox&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;input type=&quot;checkbox&quot; data-index=<span class="subst">$&#123;i&#125;</span> id=&quot;item<span class="subst">$&#123;i&#125;</span>&quot; <span class="subst">$&#123;item.done ? <span class="string">&#x27;checked&#x27;</span> : <span class="string">&#x27;&#x27;</span>&#125;</span> /&gt;</span></span><br><span class="line"><span class="string">        &lt;label for=&quot;item<span class="subst">$&#123;i&#125;</span>&quot;&gt;<span class="subst">$&#123;item.name&#125;</span>&lt;/label&gt;  </span></span><br><span class="line"><span class="string">      &lt;/li&gt;</span></span><br><span class="line"><span class="string">    `</span>;</span><br><span class="line">  &#125;).join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toggleChoose</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(e.target.matches(<span class="string">&#x27;label&#x27;</span>))<span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">const</span> el = e.target;</span><br><span class="line">  <span class="keyword">const</span> index = el.dataset.index;</span><br><span class="line">  items[index].done = !items[index].done;</span><br><span class="line">  <span class="built_in">localStorage</span>.setItem(<span class="string">&#x27;items&#x27;</span>, <span class="built_in">JSON</span>.stringify(items));</span><br><span class="line">  showItem(items, itemsList);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">showItem(items, itemsList);</span><br><span class="line">addItems.addEventListener(<span class="string">&#x27;submit&#x27;</span>, addItem);</span><br><span class="line">itemsList.addEventListener(<span class="string">&#x27;click&#x27;</span>, toggleChoose);</span><br></pre></td></tr></table></figure>
+    <title>JavaScript30-13图片滚动滑入</title>
+    <url>/javascript30-13%E5%9B%BE%E7%89%87%E6%BB%9A%E5%8A%A8%E6%BB%91%E5%85%A5.html</url>
+    <content><![CDATA[<h1 id="JavaScript30个项目-13图片滚动滑入"><a href="#JavaScript30个项目-13图片滚动滑入" class="headerlink" title="JavaScript30个项目-13图片滚动滑入"></a>JavaScript30个项目-13图片滚动滑入</h1><h2 id="1、代码"><a href="#1、代码" class="headerlink" title="1、代码"></a>1、代码</h2><h3 id="在线浏览"><a href="#在线浏览" class="headerlink" title="在线浏览"></a>在线浏览</h3><p><a class="link"   href="https://codepen.io/zhangwh754/pen/NWpjbaJ" >图片滚动滑入 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> images = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.slide-in&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">checkSlide</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">      images.forEach(<span class="function"><span class="params">image</span> =&gt;</span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">const</span> scrolled = <span class="built_in">window</span>.scrollY + <span class="built_in">window</span>.innerHeight;</span><br><span class="line">        <span class="keyword">const</span> imageHalf = image.offsetTop + (image.height / <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">const</span> imageBottom = image.offsetTop + image.height;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> isHalfShown = scrolled &gt; imageHalf;</span><br><span class="line">        <span class="keyword">let</span> isNotScrolledPast = <span class="built_in">window</span>.scrollY &lt; imageBottom;</span><br><span class="line">        <span class="keyword">if</span>(isHalfShown &amp;&amp; isNotScrolledPast)&#123;</span><br><span class="line">          image.classList.add(<span class="string">&#x27;active&#x27;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          image.classList.remove(<span class="string">&#x27;active&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">&#x27;scroll&#x27;</span>, checkSlide);</span><br></pre></td></tr></table></figure>
 
 <h2 id="2、实现原理"><a href="#2、实现原理" class="headerlink" title="2、实现原理"></a>2、实现原理</h2><ol>
-<li>存储数组到localstorage</li>
+<li>监听滚轮事件</li>
+<li>根据<code>window.scrollY</code>和<code>window.innerHeight</code>判断目前处在页面的位置,与图片位置作比较,给图片对象增加或删除css类</li>
 </ol>
 <h2 id="3、用到的我目前待加强知识点"><a href="#3、用到的我目前待加强知识点" class="headerlink" title="3、用到的我目前待加强知识点"></a>3、用到的我目前待加强知识点</h2><ol>
-<li>localstorage</li>
-<li>监听外层元素,事件委托</li>
+<li>鼠标滚轮的属性</li>
 </ol>
 ]]></content>
       <tags>
         <tag>JavaScript30</tag>
-        <tag>localStorage</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JavaScript30-16随鼠标移动的阴影</title>
-    <url>/javascript30-16%E9%9A%8F%E9%BC%A0%E6%A0%87%E7%A7%BB%E5%8A%A8%E7%9A%84%E9%98%B4%E5%BD%B1.html</url>
-    <content><![CDATA[<h1 id="JavaScript30个项目-16随鼠标移动的阴影"><a href="#JavaScript30个项目-16随鼠标移动的阴影" class="headerlink" title="JavaScript30个项目-16随鼠标移动的阴影"></a>JavaScript30个项目-16随鼠标移动的阴影</h1><h2 id="1、代码"><a href="#1、代码" class="headerlink" title="1、代码"></a>1、代码</h2><h3 id="在线浏览"><a href="#在线浏览" class="headerlink" title="在线浏览"></a>在线浏览</h3><p><a class="link"   href="https://codepen.io/zhangwh754/pen/vYxJWyR" >随鼠标移动的阴影 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> code = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.hero&#x27;</span>);</span><br><span class="line">  <span class="keyword">const</span> text = code.querySelector(<span class="string">&#x27;h1&#x27;</span>);</span><br><span class="line">  <span class="keyword">const</span> r = <span class="number">200</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">shadow</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> &#123;<span class="attr">offsetWidth</span>: width,<span class="attr">offsetHeight</span>: height&#125; = code;</span><br><span class="line">    <span class="keyword">let</span> &#123; <span class="attr">offsetX</span>: x, <span class="attr">offsetY</span>: y &#125; = e;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span> !== e.target) &#123;</span><br><span class="line">      x = x + e.target.offsetLeft;</span><br><span class="line">      y = y + e.target.offsetTop;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> xR = <span class="built_in">Math</span>.floor(x / width * r - r / <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">let</span> yR = <span class="built_in">Math</span>.floor(y / height * r - r / <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">    text.style.textShadow = <span class="string">`</span></span><br><span class="line"><span class="string">    <span class="subst">$&#123;xR&#125;</span>px <span class="subst">$&#123;yR&#125;</span>px 10px rgba(200,0,0,1)</span></span><br><span class="line"><span class="string">    `</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  code.addEventListener(<span class="string">&#x27;mousemove&#x27;</span>, shadow);</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、实现原理"><a href="#2、实现原理" class="headerlink" title="2、实现原理"></a>2、实现原理</h2><ol>
-<li>计算鼠标与网页边框的偏移量</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>JavaScript30</tag>
+        <tag>滚轮</tag>
       </tags>
   </entry>
   <entry>
@@ -286,28 +286,6 @@
       </tags>
   </entry>
   <entry>
-    <title>JavaScript30-27左右拖动效果</title>
-    <url>/javascript30-27%E5%B7%A6%E5%8F%B3%E6%8B%96%E5%8A%A8%E6%95%88%E6%9E%9C.html</url>
-    <content><![CDATA[<h1 id="JavaScript30个项目-27左右拖动效果"><a href="#JavaScript30个项目-27左右拖动效果" class="headerlink" title="JavaScript30个项目-27左右拖动效果"></a>JavaScript30个项目-27左右拖动效果</h1><h2 id="1、代码"><a href="#1、代码" class="headerlink" title="1、代码"></a>1、代码</h2><h3 id="在线浏览"><a href="#在线浏览" class="headerlink" title="在线浏览"></a>在线浏览</h3><p><a class="link"   href="https://codepen.io/zhangwh754/pen/mdWzyNV" >左右拖动效果 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> startX;</span><br><span class="line"><span class="keyword">let</span> isDown = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">let</span> startLeft;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> items = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.items&#x27;</span>)</span><br><span class="line">items.addEventListener(<span class="string">&#x27;mousedown&#x27;</span>, <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">  isDown = <span class="literal">true</span>;</span><br><span class="line">  items.classList.add(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">  startX = e.pageX - items.offsetLeft;</span><br><span class="line">  startLeft = items.scrollLeft;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">items.addEventListener(<span class="string">&#x27;mouseup&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  isDown = <span class="literal">false</span>;</span><br><span class="line">  items.classList.remove(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">items.addEventListener(<span class="string">&#x27;mouseleave&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  isDown = <span class="literal">false</span>;</span><br><span class="line">  items.classList.remove(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">items.addEventListener(<span class="string">&#x27;mousemove&#x27;</span>, <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span>(!isDown) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">let</span> x = e.pageX - items.offsetLeft;</span><br><span class="line">  <span class="keyword">const</span> slideMove = (x- startX) * <span class="number">2</span>;</span><br><span class="line">  items.scrollLeft = startLeft - slideMove;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、实现原理"><a href="#2、实现原理" class="headerlink" title="2、实现原理"></a>2、实现原理</h2><ol>
-<li>判断鼠标是否按下/在外围内</li>
-<li>如果满足条件,首先获得点击位置距离父盒子的左距离</li>
-<li>再同样获得拖动区域的左距离</li>
-<li>相减获得拖动的距离,赋值给scrollLeft属性达成拖动</li>
-<li>获得每次点击的scrollLeft,不会bug</li>
-</ol>
-<h2 id="3、用到的我目前待加强知识点"><a href="#3、用到的我目前待加强知识点" class="headerlink" title="3、用到的我目前待加强知识点"></a>3、用到的我目前待加强知识点</h2><ol>
-<li>页面的坐标</li>
-<li>scroll事件/属性</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>JavaScript30</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JavaScript30-26自定义吸附下拉菜单</title>
     <url>/javascript30-26%E8%87%AA%E5%AE%9A%E4%B9%89%E5%90%B8%E9%99%84%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95.html</url>
     <content><![CDATA[<h1 id="JavaScript30个项目-26自定义吸附下拉菜单"><a href="#JavaScript30个项目-26自定义吸附下拉菜单" class="headerlink" title="JavaScript30个项目-26自定义吸附下拉菜单"></a>JavaScript30个项目-26自定义吸附下拉菜单</h1><h2 id="1、代码"><a href="#1、代码" class="headerlink" title="1、代码"></a>1、代码</h2><h3 id="在线浏览"><a href="#在线浏览" class="headerlink" title="在线浏览"></a>在线浏览</h3><p><a class="link"   href="https://codepen.io/zhangwh754/pen/PopdzOL" >自定义吸附下拉菜单 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
@@ -364,6 +342,28 @@
       <tags>
         <tag>JavaScript30</tag>
         <tag>Date</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript30-27左右拖动效果</title>
+    <url>/javascript30-27%E5%B7%A6%E5%8F%B3%E6%8B%96%E5%8A%A8%E6%95%88%E6%9E%9C.html</url>
+    <content><![CDATA[<h1 id="JavaScript30个项目-27左右拖动效果"><a href="#JavaScript30个项目-27左右拖动效果" class="headerlink" title="JavaScript30个项目-27左右拖动效果"></a>JavaScript30个项目-27左右拖动效果</h1><h2 id="1、代码"><a href="#1、代码" class="headerlink" title="1、代码"></a>1、代码</h2><h3 id="在线浏览"><a href="#在线浏览" class="headerlink" title="在线浏览"></a>在线浏览</h3><p><a class="link"   href="https://codepen.io/zhangwh754/pen/mdWzyNV" >左右拖动效果 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> startX;</span><br><span class="line"><span class="keyword">let</span> isDown = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">let</span> startLeft;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> items = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.items&#x27;</span>)</span><br><span class="line">items.addEventListener(<span class="string">&#x27;mousedown&#x27;</span>, <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">  isDown = <span class="literal">true</span>;</span><br><span class="line">  items.classList.add(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">  startX = e.pageX - items.offsetLeft;</span><br><span class="line">  startLeft = items.scrollLeft;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">items.addEventListener(<span class="string">&#x27;mouseup&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  isDown = <span class="literal">false</span>;</span><br><span class="line">  items.classList.remove(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">items.addEventListener(<span class="string">&#x27;mouseleave&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  isDown = <span class="literal">false</span>;</span><br><span class="line">  items.classList.remove(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">items.addEventListener(<span class="string">&#x27;mousemove&#x27;</span>, <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span>(!isDown) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">let</span> x = e.pageX - items.offsetLeft;</span><br><span class="line">  <span class="keyword">const</span> slideMove = (x- startX) * <span class="number">2</span>;</span><br><span class="line">  items.scrollLeft = startLeft - slideMove;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、实现原理"><a href="#2、实现原理" class="headerlink" title="2、实现原理"></a>2、实现原理</h2><ol>
+<li>判断鼠标是否按下/在外围内</li>
+<li>如果满足条件,首先获得点击位置距离父盒子的左距离</li>
+<li>再同样获得拖动区域的左距离</li>
+<li>相减获得拖动的距离,赋值给scrollLeft属性达成拖动</li>
+<li>获得每次点击的scrollLeft,不会bug</li>
+</ol>
+<h2 id="3、用到的我目前待加强知识点"><a href="#3、用到的我目前待加强知识点" class="headerlink" title="3、用到的我目前待加强知识点"></a>3、用到的我目前待加强知识点</h2><ol>
+<li>页面的坐标</li>
+<li>scroll事件/属性</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>JavaScript30</tag>
       </tags>
   </entry>
   <entry>
@@ -499,46 +499,6 @@
       </tags>
   </entry>
   <entry>
-    <title>css绘制三角形</title>
-    <url>/css%E7%BB%98%E5%88%B6%E4%B8%89%E8%A7%92%E5%BD%A2.html</url>
-    <content><![CDATA[<h1 id="css绘制三角形"><a href="#css绘制三角形" class="headerlink" title="css绘制三角形"></a>css绘制三角形</h1><h2 id="1、代码"><a href="#1、代码" class="headerlink" title="1、代码"></a>1、代码</h2><h3 id="在线浏览"><a href="#在线浏览" class="headerlink" title="在线浏览"></a>在线浏览</h3><p><a class="link"   href="https://codepen.io/zhangwh754/pen/WNpOBpK" >css绘制三角形 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">     <span class="attribute">display</span>: inline-block;</span><br><span class="line">     <span class="attribute">margin</span>: <span class="number">10px</span> auto;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="selector-class">.triangle1</span> &#123;</span><br><span class="line">     <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">     <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">     <span class="attribute">border</span>: <span class="number">125px</span> solid transparent;</span><br><span class="line">     <span class="attribute">border-top-color</span>: red;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="selector-class">.triangle2</span> &#123;</span><br><span class="line">     <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">     <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">     <span class="attribute">border</span>: <span class="number">125px</span> solid transparent;</span><br><span class="line">     <span class="attribute">border-bottom-color</span>: blue;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="selector-class">.triangle3</span> &#123;</span><br><span class="line">     <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">     <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">     <span class="attribute">border</span>: <span class="number">125px</span> solid transparent;</span><br><span class="line">     <span class="attribute">border-left-color</span>: green;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="selector-class">.triangle4</span> &#123;</span><br><span class="line">     <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">     <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">     <span class="attribute">border</span>: <span class="number">125px</span> solid transparent;</span><br><span class="line">     <span class="attribute">border-right-color</span>: yellow;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>将一个正方形对角四份切开,将另外三个边框设置为透明即出现</p>
-<p>只设置一条边框不会显示</p>
-<p><code>元素的边框是由三角形组合而成</code></p>
-]]></content>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vue如何切换后返回维持原先滚动高度</title>
-    <url>/vue%E5%A6%82%E4%BD%95%E5%88%87%E6%8D%A2%E5%90%8E%E8%BF%94%E5%9B%9E%E7%BB%B4%E6%8C%81%E5%8E%9F%E5%85%88%E6%BB%9A%E5%8A%A8%E9%AB%98%E5%BA%A6.html</url>
-    <content><![CDATA[<h2 id="vue如何切换后返回维持原先滚动高度"><a href="#vue如何切换后返回维持原先滚动高度" class="headerlink" title="vue如何切换后返回维持原先滚动高度"></a>vue如何切换后返回维持原先滚动高度</h2><p>参考了这两篇博客</p>
-<ol>
-<li><a class="link"   href="https://www.cnblogs.com/linjiangxian/p/11457548.html" >vue 路由跳转记住滚动位置，返回时回到上次滚动位置 - 林景之 - 博客园 (cnblogs.com)<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   href="https://blog.csdn.net/weixin_42567389/article/details/106572017" >vue 路由跳转记住滚动位置，返回时回到上次滚动位置_元仙僧的博客-CSDN博客_vue实现返回记住滚动位置<i class="fas fa-external-link-alt"></i></a></li>
-</ol>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><ol>
-<li><p>首先在data定义</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">data</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">active</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">scroll</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">scrollRecord</span>: &#123;&#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></li>
-<li><p>再在methods定义</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">handleScroll () &#123;</span><br><span class="line">  <span class="comment">//通过document.documentElement.scrollTop获取当前页面的滚动条纵坐标位置</span></span><br><span class="line">  <span class="built_in">this</span>.scroll  = <span class="built_in">document</span>.documentElement &amp;&amp; <span class="built_in">document</span>.documentElement.scrollTop</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.scroll)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>再在mounted定义</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&#x27;scroll&#x27;</span>, <span class="built_in">this</span>.handleScroll);</span><br></pre></td></tr></table></figure></li>
-<li><p>最后在watch监听active</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">active (news, old) &#123;</span><br><span class="line">  <span class="built_in">this</span>.scrollRecord[<span class="string">&#x27;tab&#x27;</span> + old] = <span class="built_in">parseInt</span>(<span class="built_in">this</span>.scroll) </span><br><span class="line">  <span class="comment">// 离开的tab栏滚动的高度</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">this</span>.scrollRecord[<span class="string">&#x27;tab&#x27;</span> + news]) &#123;</span><br><span class="line">    <span class="built_in">this</span>.$nextTick(<span class="function">() =&gt;</span> &#123; </span><br><span class="line">      <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, <span class="built_in">parseInt</span>(<span class="built_in">this</span>.scrollRecord[<span class="string">&#x27;tab&#x27;</span> + news])) </span><br><span class="line">      <span class="comment">// 进入的tab栏滚动到记录的距离</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p><img src="https://gitee.com/zhang754/blogimg/raw/master/img/image-20210930210538309.png"></p>
-<p>vant Tab控件也同样可以用该方法维持滚动高度（即上方的流行、新款、精选控件）</p>
-]]></content>
-      <tags>
-        <tag>vue2</tag>
-        <tag>vant</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>map()和forEach()的异同</title>
     <url>/map-%E5%92%8Cforeach-%E7%9A%84%E5%BC%82%E5%90%8C.html</url>
     <content><![CDATA[<h2 id="map-和forEach-的异同"><a href="#map-和forEach-的异同" class="headerlink" title="map()和forEach()的异同"></a>map()和forEach()的异同</h2><h3 id="相同"><a href="#相同" class="headerlink" title="相同"></a>相同</h3><ol>
@@ -570,6 +530,46 @@
       <tags>
         <tag>map</tag>
         <tag>forEach</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>css绘制三角形</title>
+    <url>/css%E7%BB%98%E5%88%B6%E4%B8%89%E8%A7%92%E5%BD%A2.html</url>
+    <content><![CDATA[<h1 id="css绘制三角形"><a href="#css绘制三角形" class="headerlink" title="css绘制三角形"></a>css绘制三角形</h1><h2 id="1、代码"><a href="#1、代码" class="headerlink" title="1、代码"></a>1、代码</h2><h3 id="在线浏览"><a href="#在线浏览" class="headerlink" title="在线浏览"></a>在线浏览</h3><p><a class="link"   href="https://codepen.io/zhangwh754/pen/WNpOBpK" >css绘制三角形 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">     <span class="attribute">display</span>: inline-block;</span><br><span class="line">     <span class="attribute">margin</span>: <span class="number">10px</span> auto;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="selector-class">.triangle1</span> &#123;</span><br><span class="line">     <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">     <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">     <span class="attribute">border</span>: <span class="number">125px</span> solid transparent;</span><br><span class="line">     <span class="attribute">border-top-color</span>: red;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="selector-class">.triangle2</span> &#123;</span><br><span class="line">     <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">     <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">     <span class="attribute">border</span>: <span class="number">125px</span> solid transparent;</span><br><span class="line">     <span class="attribute">border-bottom-color</span>: blue;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="selector-class">.triangle3</span> &#123;</span><br><span class="line">     <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">     <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">     <span class="attribute">border</span>: <span class="number">125px</span> solid transparent;</span><br><span class="line">     <span class="attribute">border-left-color</span>: green;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="selector-class">.triangle4</span> &#123;</span><br><span class="line">     <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">     <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">     <span class="attribute">border</span>: <span class="number">125px</span> solid transparent;</span><br><span class="line">     <span class="attribute">border-right-color</span>: yellow;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>将一个正方形对角四份切开,将另外三个边框设置为透明即出现</p>
+<p>只设置一条边框不会显示</p>
+<p><code>元素的边框是由三角形组合而成</code></p>
+]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue如何切换后返回维持原先滚动高度</title>
+    <url>/vue%E5%A6%82%E4%BD%95%E5%88%87%E6%8D%A2%E5%90%8E%E8%BF%94%E5%9B%9E%E7%BB%B4%E6%8C%81%E5%8E%9F%E5%85%88%E6%BB%9A%E5%8A%A8%E9%AB%98%E5%BA%A6.html</url>
+    <content><![CDATA[<h2 id="vue如何切换后返回维持原先滚动高度"><a href="#vue如何切换后返回维持原先滚动高度" class="headerlink" title="vue如何切换后返回维持原先滚动高度"></a>vue如何切换后返回维持原先滚动高度</h2><p>参考了这两篇博客</p>
+<ol>
+<li><a class="link"   href="https://blog.csdn.net/qq_43586648/article/details/113771591" >vue 的路由互相切换时怎么保持当前页面的滚动的距离？最新方案来了_段友吊缠腰的博客-CSDN博客<i class="fas fa-external-link-alt"></i></a></li>
+<li><a href="https://blog.csdn.net/weixin_42567389/article/details/106572017"><a class="link"   href="https://www.cnblogs.com/linjiangxian/p/11457548.html" >vue 路由跳转记住滚动位置，返回时回到上次滚动位置 - 林景之 - 博客园 (cnblogs.com)<i class="fas fa-external-link-alt"></i></a></a></li>
+</ol>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><ol>
+<li><p>首先在data定义</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">data</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">active</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">scroll</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">scrollRecord</span>: &#123;&#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></li>
+<li><p>再在methods定义</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">handleScroll () &#123;</span><br><span class="line">  <span class="comment">//通过document.documentElement.scrollTop获取当前页面的滚动条纵坐标位置</span></span><br><span class="line">  <span class="built_in">this</span>.scroll  = <span class="built_in">document</span>.documentElement &amp;&amp; <span class="built_in">document</span>.documentElement.scrollTop</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.scroll)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>再在mounted定义</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&#x27;scroll&#x27;</span>, <span class="built_in">this</span>.handleScroll);</span><br></pre></td></tr></table></figure></li>
+<li><p>最后在watch监听active</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">active (news, old) &#123;</span><br><span class="line">  <span class="built_in">this</span>.scrollRecord[<span class="string">&#x27;tab&#x27;</span> + old] = <span class="built_in">parseInt</span>(<span class="built_in">this</span>.scroll) </span><br><span class="line">  <span class="comment">// 离开的tab栏滚动的高度</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">this</span>.scrollRecord[<span class="string">&#x27;tab&#x27;</span> + news]) &#123;</span><br><span class="line">    <span class="built_in">this</span>.$nextTick(<span class="function">() =&gt;</span> &#123; </span><br><span class="line">      <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, <span class="built_in">parseInt</span>(<span class="built_in">this</span>.scrollRecord[<span class="string">&#x27;tab&#x27;</span> + news])) </span><br><span class="line">      <span class="comment">// 进入的tab栏滚动到记录的距离</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p><img src="https://gitee.com/zhang754/blogimg/raw/master/img/image-20210930210538309.png"></p>
+<p>vant Tab控件也同样可以用该方法维持滚动高度（即上方的流行、新款、精选控件）</p>
+]]></content>
+      <tags>
+        <tag>vue2</tag>
+        <tag>vant</tag>
       </tags>
   </entry>
   <entry>
