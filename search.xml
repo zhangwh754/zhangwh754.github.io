@@ -147,25 +147,6 @@
       </tags>
   </entry>
   <entry>
-    <title>JavaScript30-18字符串时间求和</title>
-    <url>/javascript30-18%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%B6%E9%97%B4%E6%B1%82%E5%92%8C.html</url>
-    <content><![CDATA[<h1 id="JavaScript30个项目-18字符串时间求和"><a href="#JavaScript30个项目-18字符串时间求和" class="headerlink" title="JavaScript30个项目-18字符串时间求和"></a>JavaScript30个项目-18字符串时间求和</h1><h2 id="1、js代码"><a href="#1、js代码" class="headerlink" title="1、js代码"></a>1、js代码</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> timeNodes = <span class="built_in">Array</span>.from(<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;[data-time]&#x27;</span>));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> seconds = timeNodes</span><br><span class="line">    .map(<span class="function"><span class="params">node</span> =&gt;</span> node.dataset.time)</span><br><span class="line">    .map(<span class="function"><span class="params">time</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> [mins, secs] = time.split(<span class="string">&#x27;:&#x27;</span>).map(<span class="built_in">parseFloat</span>);</span><br><span class="line">      <span class="keyword">return</span> mins * <span class="number">60</span> + secs</span><br><span class="line">    &#125;)</span><br><span class="line">    .reduce(<span class="function">(<span class="params">sum, cur</span>) =&gt;</span> sum + cur)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> secondsLeft = seconds;</span><br><span class="line">    <span class="keyword">let</span> hours = <span class="built_in">Math</span>.floor(secondsLeft / <span class="number">3600</span>);</span><br><span class="line">    secondsLeft = secondsLeft - hours * <span class="number">3600</span>;</span><br><span class="line">    <span class="keyword">let</span> minutes = <span class="built_in">Math</span>.floor(secondsLeft / <span class="number">60</span>);</span><br><span class="line">    secondsLeft = secondsLeft - minutes * <span class="number">60</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(hours, minutes, secondsLeft);</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、实现原理"><a href="#2、实现原理" class="headerlink" title="2、实现原理"></a>2、实现原理</h2><ol>
-<li>将获取到的Nodelist转换为数组</li>
-<li>将数组用冒号隔开,并转化为浮点数</li>
-<li>将分秒相加</li>
-</ol>
-<h2 id="3、用到的我目前待加强知识点"><a href="#3、用到的我目前待加强知识点" class="headerlink" title="3、用到的我目前待加强知识点"></a>3、用到的我目前待加强知识点</h2><ol>
-<li>解构</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>JavaScript30</tag>
-        <tag>Array</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JavaScript30-17自定义规则排序数组</title>
     <url>/javascript30-17%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84.html</url>
     <content><![CDATA[<h1 id="JavaScript30个项目-17自定义规则排序数组"><a href="#JavaScript30个项目-17自定义规则排序数组" class="headerlink" title="JavaScript30个项目-17自定义规则排序数组"></a>JavaScript30个项目-17自定义规则排序数组</h1><h2 id="1、代码"><a href="#1、代码" class="headerlink" title="1、代码"></a>1、代码</h2><h3 id="在线浏览"><a href="#在线浏览" class="headerlink" title="在线浏览"></a>在线浏览</h3><p><a class="link"   href="https://codepen.io/zhangwh754/pen/LYWzpYb" >自定义规则排序数组 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
@@ -182,6 +163,25 @@
       <tags>
         <tag>JavaScript30</tag>
         <tag>正则表达式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript30-18字符串时间求和</title>
+    <url>/javascript30-18%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%B6%E9%97%B4%E6%B1%82%E5%92%8C.html</url>
+    <content><![CDATA[<h1 id="JavaScript30个项目-18字符串时间求和"><a href="#JavaScript30个项目-18字符串时间求和" class="headerlink" title="JavaScript30个项目-18字符串时间求和"></a>JavaScript30个项目-18字符串时间求和</h1><h2 id="1、js代码"><a href="#1、js代码" class="headerlink" title="1、js代码"></a>1、js代码</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> timeNodes = <span class="built_in">Array</span>.from(<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;[data-time]&#x27;</span>));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> seconds = timeNodes</span><br><span class="line">    .map(<span class="function"><span class="params">node</span> =&gt;</span> node.dataset.time)</span><br><span class="line">    .map(<span class="function"><span class="params">time</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> [mins, secs] = time.split(<span class="string">&#x27;:&#x27;</span>).map(<span class="built_in">parseFloat</span>);</span><br><span class="line">      <span class="keyword">return</span> mins * <span class="number">60</span> + secs</span><br><span class="line">    &#125;)</span><br><span class="line">    .reduce(<span class="function">(<span class="params">sum, cur</span>) =&gt;</span> sum + cur)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> secondsLeft = seconds;</span><br><span class="line">    <span class="keyword">let</span> hours = <span class="built_in">Math</span>.floor(secondsLeft / <span class="number">3600</span>);</span><br><span class="line">    secondsLeft = secondsLeft - hours * <span class="number">3600</span>;</span><br><span class="line">    <span class="keyword">let</span> minutes = <span class="built_in">Math</span>.floor(secondsLeft / <span class="number">60</span>);</span><br><span class="line">    secondsLeft = secondsLeft - minutes * <span class="number">60</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(hours, minutes, secondsLeft);</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、实现原理"><a href="#2、实现原理" class="headerlink" title="2、实现原理"></a>2、实现原理</h2><ol>
+<li>将获取到的Nodelist转换为数组</li>
+<li>将数组用冒号隔开,并转化为浮点数</li>
+<li>将分秒相加</li>
+</ol>
+<h2 id="3、用到的我目前待加强知识点"><a href="#3、用到的我目前待加强知识点" class="headerlink" title="3、用到的我目前待加强知识点"></a>3、用到的我目前待加强知识点</h2><ol>
+<li>解构</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>JavaScript30</tag>
+        <tag>Array</tag>
       </tags>
   </entry>
   <entry>
@@ -286,26 +286,6 @@
       </tags>
   </entry>
   <entry>
-    <title>JavaScript30-26自定义吸附下拉菜单</title>
-    <url>/javascript30-26%E8%87%AA%E5%AE%9A%E4%B9%89%E5%90%B8%E9%99%84%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95.html</url>
-    <content><![CDATA[<h1 id="JavaScript30个项目-26自定义吸附下拉菜单"><a href="#JavaScript30个项目-26自定义吸附下拉菜单" class="headerlink" title="JavaScript30个项目-26自定义吸附下拉菜单"></a>JavaScript30个项目-26自定义吸附下拉菜单</h1><h2 id="1、代码"><a href="#1、代码" class="headerlink" title="1、代码"></a>1、代码</h2><h3 id="在线浏览"><a href="#在线浏览" class="headerlink" title="在线浏览"></a>在线浏览</h3><p><a class="link"   href="https://codepen.io/zhangwh754/pen/PopdzOL" >自定义吸附下拉菜单 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> nav = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;nav&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> navLists = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.cool &gt; li&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> background = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.dropdownBackground&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleEnter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.classList.add(<span class="string">&#x27;trigger-enter&#x27;</span>)</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">this</span>.classList.contains(<span class="string">&#x27;trigger-enter&#x27;</span>))&#123;</span><br><span class="line">            <span class="built_in">this</span>.classList.add(<span class="string">&#x27;trigger-enter-active&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">150</span>)</span><br><span class="line">    <span class="keyword">const</span> dropdownRect = <span class="built_in">this</span>.querySelector(<span class="string">&#x27;.dropdown&#x27;</span>).getBoundingClientRect()</span><br><span class="line">    <span class="keyword">const</span> navRect = nav.getBoundingClientRect()</span><br><span class="line">    <span class="keyword">const</span> backgroundRect = &#123;</span><br><span class="line">        <span class="attr">width</span>: dropdownRect.width,</span><br><span class="line">        <span class="attr">height</span>: dropdownRect.height,</span><br><span class="line">        <span class="attr">top</span>: dropdownRect.top - navRect.top,</span><br><span class="line">        <span class="attr">left</span>: dropdownRect.left - navRect.left</span><br><span class="line">    &#125;</span><br><span class="line">    background.classList.add(<span class="string">&#x27;open&#x27;</span>)</span><br><span class="line">    background.style.setProperty(<span class="string">&#x27;width&#x27;</span>, <span class="string">`<span class="subst">$&#123;backgroundRect.width&#125;</span>px`</span>)</span><br><span class="line">    background.style.setProperty(<span class="string">&#x27;height&#x27;</span>, <span class="string">`<span class="subst">$&#123;backgroundRect.height&#125;</span>px`</span>)</span><br><span class="line">    background.style.setProperty(<span class="string">&#x27;transform&#x27;</span>, <span class="string">`translate(<span class="subst">$&#123;backgroundRect.left&#125;</span>px,<span class="subst">$&#123;backgroundRect.top&#125;</span>px)`</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleLeave</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.classList.remove(<span class="string">&#x27;trigger-enter&#x27;</span>, <span class="string">&#x27;trigger-enter-active&#x27;</span>)</span><br><span class="line">    background.classList.remove(<span class="string">&#x27;open&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">navLists.forEach(<span class="function"><span class="params">navList</span> =&gt;</span> navList.addEventListener(<span class="string">&#x27;mouseenter&#x27;</span>, handleEnter))</span><br><span class="line">navLists.forEach(<span class="function"><span class="params">navList</span> =&gt;</span> navList.addEventListener(<span class="string">&#x27;mouseleave&#x27;</span>, handleLeave))</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、实现原理"><a href="#2、实现原理" class="headerlink" title="2、实现原理"></a>2、实现原理</h2><ol>
-<li>给li增加css样式,让下拉框显示</li>
-<li>给背景矩形宽,高,Top,Left赋值</li>
-</ol>
-<h2 id="3、Tip"><a href="#3、Tip" class="headerlink" title="3、Tip"></a>3、Tip</h2><ol>
-<li>将显示效果<code>拆分</code>为display: none =&gt; block, opacity: 0 =&gt; 1,可以让显示效果有渐变</li>
-<li>给定时器增加一个判断,防止用户快速切换时,添加了错误的class</li>
-<li>增加对nav的Top,left的判断,防止背景矩形位置错误</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>JavaScript30</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JavaScript30-27左右拖动效果</title>
     <url>/javascript30-27%E5%B7%A6%E5%8F%B3%E6%8B%96%E5%8A%A8%E6%95%88%E6%9E%9C.html</url>
     <content><![CDATA[<h1 id="JavaScript30个项目-27左右拖动效果"><a href="#JavaScript30个项目-27左右拖动效果" class="headerlink" title="JavaScript30个项目-27左右拖动效果"></a>JavaScript30个项目-27左右拖动效果</h1><h2 id="1、代码"><a href="#1、代码" class="headerlink" title="1、代码"></a>1、代码</h2><h3 id="在线浏览"><a href="#在线浏览" class="headerlink" title="在线浏览"></a>在线浏览</h3><p><a class="link"   href="https://codepen.io/zhangwh754/pen/mdWzyNV" >左右拖动效果 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
@@ -321,6 +301,26 @@
 <h2 id="3、用到的我目前待加强知识点"><a href="#3、用到的我目前待加强知识点" class="headerlink" title="3、用到的我目前待加强知识点"></a>3、用到的我目前待加强知识点</h2><ol>
 <li>页面的坐标</li>
 <li>scroll事件/属性</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>JavaScript30</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript30-26自定义吸附下拉菜单</title>
+    <url>/javascript30-26%E8%87%AA%E5%AE%9A%E4%B9%89%E5%90%B8%E9%99%84%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95.html</url>
+    <content><![CDATA[<h1 id="JavaScript30个项目-26自定义吸附下拉菜单"><a href="#JavaScript30个项目-26自定义吸附下拉菜单" class="headerlink" title="JavaScript30个项目-26自定义吸附下拉菜单"></a>JavaScript30个项目-26自定义吸附下拉菜单</h1><h2 id="1、代码"><a href="#1、代码" class="headerlink" title="1、代码"></a>1、代码</h2><h3 id="在线浏览"><a href="#在线浏览" class="headerlink" title="在线浏览"></a>在线浏览</h3><p><a class="link"   href="https://codepen.io/zhangwh754/pen/PopdzOL" >自定义吸附下拉菜单 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> nav = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;nav&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> navLists = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.cool &gt; li&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> background = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.dropdownBackground&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleEnter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.classList.add(<span class="string">&#x27;trigger-enter&#x27;</span>)</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">this</span>.classList.contains(<span class="string">&#x27;trigger-enter&#x27;</span>))&#123;</span><br><span class="line">            <span class="built_in">this</span>.classList.add(<span class="string">&#x27;trigger-enter-active&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">150</span>)</span><br><span class="line">    <span class="keyword">const</span> dropdownRect = <span class="built_in">this</span>.querySelector(<span class="string">&#x27;.dropdown&#x27;</span>).getBoundingClientRect()</span><br><span class="line">    <span class="keyword">const</span> navRect = nav.getBoundingClientRect()</span><br><span class="line">    <span class="keyword">const</span> backgroundRect = &#123;</span><br><span class="line">        <span class="attr">width</span>: dropdownRect.width,</span><br><span class="line">        <span class="attr">height</span>: dropdownRect.height,</span><br><span class="line">        <span class="attr">top</span>: dropdownRect.top - navRect.top,</span><br><span class="line">        <span class="attr">left</span>: dropdownRect.left - navRect.left</span><br><span class="line">    &#125;</span><br><span class="line">    background.classList.add(<span class="string">&#x27;open&#x27;</span>)</span><br><span class="line">    background.style.setProperty(<span class="string">&#x27;width&#x27;</span>, <span class="string">`<span class="subst">$&#123;backgroundRect.width&#125;</span>px`</span>)</span><br><span class="line">    background.style.setProperty(<span class="string">&#x27;height&#x27;</span>, <span class="string">`<span class="subst">$&#123;backgroundRect.height&#125;</span>px`</span>)</span><br><span class="line">    background.style.setProperty(<span class="string">&#x27;transform&#x27;</span>, <span class="string">`translate(<span class="subst">$&#123;backgroundRect.left&#125;</span>px,<span class="subst">$&#123;backgroundRect.top&#125;</span>px)`</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleLeave</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.classList.remove(<span class="string">&#x27;trigger-enter&#x27;</span>, <span class="string">&#x27;trigger-enter-active&#x27;</span>)</span><br><span class="line">    background.classList.remove(<span class="string">&#x27;open&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">navLists.forEach(<span class="function"><span class="params">navList</span> =&gt;</span> navList.addEventListener(<span class="string">&#x27;mouseenter&#x27;</span>, handleEnter))</span><br><span class="line">navLists.forEach(<span class="function"><span class="params">navList</span> =&gt;</span> navList.addEventListener(<span class="string">&#x27;mouseleave&#x27;</span>, handleLeave))</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、实现原理"><a href="#2、实现原理" class="headerlink" title="2、实现原理"></a>2、实现原理</h2><ol>
+<li>给li增加css样式,让下拉框显示</li>
+<li>给背景矩形宽,高,Top,Left赋值</li>
+</ol>
+<h2 id="3、Tip"><a href="#3、Tip" class="headerlink" title="3、Tip"></a>3、Tip</h2><ol>
+<li>将显示效果<code>拆分</code>为display: none =&gt; block, opacity: 0 =&gt; 1,可以让显示效果有渐变</li>
+<li>给定时器增加一个判断,防止用户快速切换时,添加了错误的class</li>
+<li>增加对nav的Top,left的判断,防止背景矩形位置错误</li>
 </ol>
 ]]></content>
       <tags>
@@ -510,6 +510,32 @@
 ]]></content>
       <tags>
         <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue如何切换后返回维持原先滚动高度</title>
+    <url>/vue%E5%A6%82%E4%BD%95%E5%88%87%E6%8D%A2%E5%90%8E%E8%BF%94%E5%9B%9E%E7%BB%B4%E6%8C%81%E5%8E%9F%E5%85%88%E6%BB%9A%E5%8A%A8%E9%AB%98%E5%BA%A6.html</url>
+    <content><![CDATA[<h2 id="vue如何切换后返回维持原先滚动高度"><a href="#vue如何切换后返回维持原先滚动高度" class="headerlink" title="vue如何切换后返回维持原先滚动高度"></a>vue如何切换后返回维持原先滚动高度</h2><p>参考了这两篇博客</p>
+<ol>
+<li><a class="link"   href="https://www.cnblogs.com/linjiangxian/p/11457548.html" >vue 路由跳转记住滚动位置，返回时回到上次滚动位置 - 林景之 - 博客园 (cnblogs.com)<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   href="https://blog.csdn.net/weixin_42567389/article/details/106572017" >vue 路由跳转记住滚动位置，返回时回到上次滚动位置_元仙僧的博客-CSDN博客_vue实现返回记住滚动位置<i class="fas fa-external-link-alt"></i></a></li>
+</ol>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><ol>
+<li><p>首先在data定义</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">data</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">active</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">scroll</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">scrollRecord</span>: &#123;&#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></li>
+<li><p>再在methods定义</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">handleScroll () &#123;</span><br><span class="line">  <span class="comment">//通过document.documentElement.scrollTop获取当前页面的滚动条纵坐标位置</span></span><br><span class="line">  <span class="built_in">this</span>.scroll  = <span class="built_in">document</span>.documentElement &amp;&amp; <span class="built_in">document</span>.documentElement.scrollTop</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.scroll)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>再在mounted定义</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&#x27;scroll&#x27;</span>, <span class="built_in">this</span>.handleScroll);</span><br></pre></td></tr></table></figure></li>
+<li><p>最后在watch监听active</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">active (news, old) &#123;</span><br><span class="line">  <span class="built_in">this</span>.scrollRecord[<span class="string">&#x27;tab&#x27;</span> + old] = <span class="built_in">parseInt</span>(<span class="built_in">this</span>.scroll) </span><br><span class="line">  <span class="comment">// 离开的tab栏滚动的高度</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">this</span>.scrollRecord[<span class="string">&#x27;tab&#x27;</span> + news]) &#123;</span><br><span class="line">    <span class="built_in">this</span>.$nextTick(<span class="function">() =&gt;</span> &#123; </span><br><span class="line">      <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, <span class="built_in">parseInt</span>(<span class="built_in">this</span>.scrollRecord[<span class="string">&#x27;tab&#x27;</span> + news])) </span><br><span class="line">      <span class="comment">// 进入的tab栏滚动到记录的距离</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p><img src="https://gitee.com/zhang754/blogimg/raw/master/img/image-20210930210538309.png"></p>
+<p>vant Tab控件也同样可以用该方法维持滚动高度（即上方的流行、新款、精选控件）</p>
+]]></content>
+      <tags>
+        <tag>vue2</tag>
+        <tag>vant</tag>
       </tags>
   </entry>
   <entry>
