@@ -66,6 +66,25 @@
       </tags>
   </entry>
   <entry>
+    <title>JavaScript30-13图片滚动滑入</title>
+    <url>/javascript30-13%E5%9B%BE%E7%89%87%E6%BB%9A%E5%8A%A8%E6%BB%91%E5%85%A5.html</url>
+    <content><![CDATA[<h1 id="JavaScript30个项目-13图片滚动滑入"><a href="#JavaScript30个项目-13图片滚动滑入" class="headerlink" title="JavaScript30个项目-13图片滚动滑入"></a>JavaScript30个项目-13图片滚动滑入</h1><h2 id="1、代码"><a href="#1、代码" class="headerlink" title="1、代码"></a>1、代码</h2><h3 id="在线浏览"><a href="#在线浏览" class="headerlink" title="在线浏览"></a>在线浏览</h3><p><a class="link"   href="https://codepen.io/zhangwh754/pen/NWpjbaJ" >图片滚动滑入 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> images = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.slide-in&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">checkSlide</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">      images.forEach(<span class="function"><span class="params">image</span> =&gt;</span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">const</span> scrolled = <span class="built_in">window</span>.scrollY + <span class="built_in">window</span>.innerHeight;</span><br><span class="line">        <span class="keyword">const</span> imageHalf = image.offsetTop + (image.height / <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">const</span> imageBottom = image.offsetTop + image.height;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> isHalfShown = scrolled &gt; imageHalf;</span><br><span class="line">        <span class="keyword">let</span> isNotScrolledPast = <span class="built_in">window</span>.scrollY &lt; imageBottom;</span><br><span class="line">        <span class="keyword">if</span>(isHalfShown &amp;&amp; isNotScrolledPast)&#123;</span><br><span class="line">          image.classList.add(<span class="string">&#x27;active&#x27;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          image.classList.remove(<span class="string">&#x27;active&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">&#x27;scroll&#x27;</span>, checkSlide);</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、实现原理"><a href="#2、实现原理" class="headerlink" title="2、实现原理"></a>2、实现原理</h2><ol>
+<li>监听滚轮事件</li>
+<li>根据<code>window.scrollY</code>和<code>window.innerHeight</code>判断目前处在页面的位置,与图片位置作比较,给图片对象增加或删除css类</li>
+</ol>
+<h2 id="3、用到的我目前待加强知识点"><a href="#3、用到的我目前待加强知识点" class="headerlink" title="3、用到的我目前待加强知识点"></a>3、用到的我目前待加强知识点</h2><ol>
+<li>鼠标滚轮的属性</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>JavaScript30</tag>
+        <tag>滚轮</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaScript30-14数组,对象复制</title>
     <url>/javascript30-14%E6%95%B0%E7%BB%84-%E5%AF%B9%E8%B1%A1%E5%A4%8D%E5%88%B6.html</url>
     <content><![CDATA[<h1 id="JavaScript30个项目-14数组-对象复制"><a href="#JavaScript30个项目-14数组-对象复制" class="headerlink" title="JavaScript30个项目-14数组,对象复制"></a>JavaScript30个项目-14数组,对象复制</h1><h2 id="1、js代码"><a href="#1、js代码" class="headerlink" title="1、js代码"></a>1、js代码</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//with Array</span></span><br><span class="line">    <span class="keyword">const</span> players = [<span class="string">&#x27;Wes&#x27;</span>, <span class="string">&#x27;Sarah&#x27;</span>, <span class="string">&#x27;Ryan&#x27;</span>, <span class="string">&#x27;Poppy&#x27;</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1-直接复制</span></span><br><span class="line">    <span class="keyword">const</span> players2 = players;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// players2[0] = &#x27;⛑️&#x27;;</span></span><br><span class="line">    <span class="comment">// console.log(players, players2);//原数组与复制数组均改变</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//2-新数组复制(四种)</span></span><br><span class="line">    <span class="keyword">const</span> players3 = players.slice();</span><br><span class="line">    players3[<span class="number">0</span>] = <span class="string">&#x27;⛑️&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> players4 = [].concat(players);</span><br><span class="line">    players4[<span class="number">0</span>] = <span class="string">&#x27;⛑️&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> players5 = [...players];</span><br><span class="line">    players5[<span class="number">0</span>] = <span class="string">&#x27;⛑️&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> players6 = <span class="built_in">Array</span>.from(players);</span><br><span class="line">    players6[<span class="number">0</span>] = <span class="string">&#x27;⛑️&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// console.log(players);//原数组不改变</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// with Objects</span></span><br><span class="line">    <span class="keyword">const</span> person = &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;Wes Bos&#x27;</span>,</span><br><span class="line">      <span class="attr">age</span>: <span class="number">80</span>,</span><br><span class="line">      <span class="attr">contact</span>: &#123;</span><br><span class="line">        <span class="attr">qq</span>: <span class="number">1840863933</span>,</span><br><span class="line">        <span class="attr">wechat</span>: <span class="string">&#x27;saiph91&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//1-直接改变</span></span><br><span class="line">    <span class="comment">// const person1 = person;</span></span><br><span class="line">    <span class="comment">// person1.name = &#x27;⛑️&#x27;;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// console.log(person, person1);//原对象现对象均改变</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//2-浅复制(2种)</span></span><br><span class="line">    <span class="keyword">const</span> person2 = &#123;...person&#125;</span><br><span class="line">    person2.name = <span class="string">&#x27;⛑️&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> person3 = <span class="built_in">Object</span>.assign(&#123;&#125;, person,&#123;<span class="attr">name</span>: <span class="string">&#x27;⛑️&#x27;</span>&#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 但这两个是浅复制,改变对象内对象也会改变原对象的对象属性值</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3-深复制</span></span><br><span class="line">    <span class="keyword">const</span> person4 = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(person));</span><br><span class="line">    person4.contact.qq = <span class="string">&#x27;⛑️&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(person);<span class="comment">//原对象qq未改变</span></span><br></pre></td></tr></table></figure>
@@ -92,25 +111,6 @@
         <tag>JavaScript30</tag>
         <tag>数组</tag>
         <tag>对象</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JavaScript30-13图片滚动滑入</title>
-    <url>/javascript30-13%E5%9B%BE%E7%89%87%E6%BB%9A%E5%8A%A8%E6%BB%91%E5%85%A5.html</url>
-    <content><![CDATA[<h1 id="JavaScript30个项目-13图片滚动滑入"><a href="#JavaScript30个项目-13图片滚动滑入" class="headerlink" title="JavaScript30个项目-13图片滚动滑入"></a>JavaScript30个项目-13图片滚动滑入</h1><h2 id="1、代码"><a href="#1、代码" class="headerlink" title="1、代码"></a>1、代码</h2><h3 id="在线浏览"><a href="#在线浏览" class="headerlink" title="在线浏览"></a>在线浏览</h3><p><a class="link"   href="https://codepen.io/zhangwh754/pen/NWpjbaJ" >图片滚动滑入 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> images = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.slide-in&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">checkSlide</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">      images.forEach(<span class="function"><span class="params">image</span> =&gt;</span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">const</span> scrolled = <span class="built_in">window</span>.scrollY + <span class="built_in">window</span>.innerHeight;</span><br><span class="line">        <span class="keyword">const</span> imageHalf = image.offsetTop + (image.height / <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">const</span> imageBottom = image.offsetTop + image.height;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> isHalfShown = scrolled &gt; imageHalf;</span><br><span class="line">        <span class="keyword">let</span> isNotScrolledPast = <span class="built_in">window</span>.scrollY &lt; imageBottom;</span><br><span class="line">        <span class="keyword">if</span>(isHalfShown &amp;&amp; isNotScrolledPast)&#123;</span><br><span class="line">          image.classList.add(<span class="string">&#x27;active&#x27;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          image.classList.remove(<span class="string">&#x27;active&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">&#x27;scroll&#x27;</span>, checkSlide);</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、实现原理"><a href="#2、实现原理" class="headerlink" title="2、实现原理"></a>2、实现原理</h2><ol>
-<li>监听滚轮事件</li>
-<li>根据<code>window.scrollY</code>和<code>window.innerHeight</code>判断目前处在页面的位置,与图片位置作比较,给图片对象增加或删除css类</li>
-</ol>
-<h2 id="3、用到的我目前待加强知识点"><a href="#3、用到的我目前待加强知识点" class="headerlink" title="3、用到的我目前待加强知识点"></a>3、用到的我目前待加强知识点</h2><ol>
-<li>鼠标滚轮的属性</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>JavaScript30</tag>
-        <tag>滚轮</tag>
       </tags>
   </entry>
   <entry>
@@ -147,25 +147,6 @@
       </tags>
   </entry>
   <entry>
-    <title>JavaScript30-18字符串时间求和</title>
-    <url>/javascript30-18%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%B6%E9%97%B4%E6%B1%82%E5%92%8C.html</url>
-    <content><![CDATA[<h1 id="JavaScript30个项目-18字符串时间求和"><a href="#JavaScript30个项目-18字符串时间求和" class="headerlink" title="JavaScript30个项目-18字符串时间求和"></a>JavaScript30个项目-18字符串时间求和</h1><h2 id="1、js代码"><a href="#1、js代码" class="headerlink" title="1、js代码"></a>1、js代码</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> timeNodes = <span class="built_in">Array</span>.from(<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;[data-time]&#x27;</span>));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> seconds = timeNodes</span><br><span class="line">    .map(<span class="function"><span class="params">node</span> =&gt;</span> node.dataset.time)</span><br><span class="line">    .map(<span class="function"><span class="params">time</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> [mins, secs] = time.split(<span class="string">&#x27;:&#x27;</span>).map(<span class="built_in">parseFloat</span>);</span><br><span class="line">      <span class="keyword">return</span> mins * <span class="number">60</span> + secs</span><br><span class="line">    &#125;)</span><br><span class="line">    .reduce(<span class="function">(<span class="params">sum, cur</span>) =&gt;</span> sum + cur)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> secondsLeft = seconds;</span><br><span class="line">    <span class="keyword">let</span> hours = <span class="built_in">Math</span>.floor(secondsLeft / <span class="number">3600</span>);</span><br><span class="line">    secondsLeft = secondsLeft - hours * <span class="number">3600</span>;</span><br><span class="line">    <span class="keyword">let</span> minutes = <span class="built_in">Math</span>.floor(secondsLeft / <span class="number">60</span>);</span><br><span class="line">    secondsLeft = secondsLeft - minutes * <span class="number">60</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(hours, minutes, secondsLeft);</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、实现原理"><a href="#2、实现原理" class="headerlink" title="2、实现原理"></a>2、实现原理</h2><ol>
-<li>将获取到的Nodelist转换为数组</li>
-<li>将数组用冒号隔开,并转化为浮点数</li>
-<li>将分秒相加</li>
-</ol>
-<h2 id="3、用到的我目前待加强知识点"><a href="#3、用到的我目前待加强知识点" class="headerlink" title="3、用到的我目前待加强知识点"></a>3、用到的我目前待加强知识点</h2><ol>
-<li>解构</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>JavaScript30</tag>
-        <tag>Array</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JavaScript30-17自定义规则排序数组</title>
     <url>/javascript30-17%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84.html</url>
     <content><![CDATA[<h1 id="JavaScript30个项目-17自定义规则排序数组"><a href="#JavaScript30个项目-17自定义规则排序数组" class="headerlink" title="JavaScript30个项目-17自定义规则排序数组"></a>JavaScript30个项目-17自定义规则排序数组</h1><h2 id="1、代码"><a href="#1、代码" class="headerlink" title="1、代码"></a>1、代码</h2><h3 id="在线浏览"><a href="#在线浏览" class="headerlink" title="在线浏览"></a>在线浏览</h3><p><a class="link"   href="https://codepen.io/zhangwh754/pen/LYWzpYb" >自定义规则排序数组 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
@@ -182,6 +163,25 @@
       <tags>
         <tag>JavaScript30</tag>
         <tag>正则表达式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript30-18字符串时间求和</title>
+    <url>/javascript30-18%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%B6%E9%97%B4%E6%B1%82%E5%92%8C.html</url>
+    <content><![CDATA[<h1 id="JavaScript30个项目-18字符串时间求和"><a href="#JavaScript30个项目-18字符串时间求和" class="headerlink" title="JavaScript30个项目-18字符串时间求和"></a>JavaScript30个项目-18字符串时间求和</h1><h2 id="1、js代码"><a href="#1、js代码" class="headerlink" title="1、js代码"></a>1、js代码</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> timeNodes = <span class="built_in">Array</span>.from(<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;[data-time]&#x27;</span>));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> seconds = timeNodes</span><br><span class="line">    .map(<span class="function"><span class="params">node</span> =&gt;</span> node.dataset.time)</span><br><span class="line">    .map(<span class="function"><span class="params">time</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> [mins, secs] = time.split(<span class="string">&#x27;:&#x27;</span>).map(<span class="built_in">parseFloat</span>);</span><br><span class="line">      <span class="keyword">return</span> mins * <span class="number">60</span> + secs</span><br><span class="line">    &#125;)</span><br><span class="line">    .reduce(<span class="function">(<span class="params">sum, cur</span>) =&gt;</span> sum + cur)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> secondsLeft = seconds;</span><br><span class="line">    <span class="keyword">let</span> hours = <span class="built_in">Math</span>.floor(secondsLeft / <span class="number">3600</span>);</span><br><span class="line">    secondsLeft = secondsLeft - hours * <span class="number">3600</span>;</span><br><span class="line">    <span class="keyword">let</span> minutes = <span class="built_in">Math</span>.floor(secondsLeft / <span class="number">60</span>);</span><br><span class="line">    secondsLeft = secondsLeft - minutes * <span class="number">60</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(hours, minutes, secondsLeft);</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、实现原理"><a href="#2、实现原理" class="headerlink" title="2、实现原理"></a>2、实现原理</h2><ol>
+<li>将获取到的Nodelist转换为数组</li>
+<li>将数组用冒号隔开,并转化为浮点数</li>
+<li>将分秒相加</li>
+</ol>
+<h2 id="3、用到的我目前待加强知识点"><a href="#3、用到的我目前待加强知识点" class="headerlink" title="3、用到的我目前待加强知识点"></a>3、用到的我目前待加强知识点</h2><ol>
+<li>解构</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>JavaScript30</tag>
+        <tag>Array</tag>
       </tags>
   </entry>
   <entry>
@@ -241,22 +241,6 @@
       </tags>
   </entry>
   <entry>
-    <title>JavaScript30-24吸顶导航</title>
-    <url>/javascript30-24%E5%90%B8%E9%A1%B6%E5%AF%BC%E8%88%AA.html</url>
-    <content><![CDATA[<h1 id="JavaScript30个项目-24吸顶导航"><a href="#JavaScript30个项目-24吸顶导航" class="headerlink" title="JavaScript30个项目-24吸顶导航"></a>JavaScript30个项目-24吸顶导航</h1><h2 id="1、js代码"><a href="#1、js代码" class="headerlink" title="1、js代码"></a>1、js代码</h2><h3 id="在线浏览"><a href="#在线浏览" class="headerlink" title="在线浏览"></a>在线浏览</h3><p><a class="link"   href="https://codepen.io/zhangwh754/pen/jOBKQBq" >吸顶导航栏 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Js代码"><a href="#Js代码" class="headerlink" title="Js代码"></a>Js代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> navBar = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#main&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> navBarTop = navBar.offsetTop;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fixNav</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(navBarTop, <span class="built_in">window</span>.scrollY);</span><br><span class="line">  <span class="keyword">if</span>(navBarTop &lt;= <span class="built_in">window</span>.scrollY) &#123;</span><br><span class="line">    <span class="built_in">document</span>.body.style.paddingTop = navBar.offsetHeight + <span class="string">&#x27;px&#x27;</span>;</span><br><span class="line">    <span class="built_in">document</span>.body.classList.add(<span class="string">&#x27;fixed-nav&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">document</span>.body.style.paddingTop = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">document</span>.body.classList.remove(<span class="string">&#x27;fixed-nav&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&#x27;scroll&#x27;</span>, fixNav);</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、实现原理"><a href="#2、实现原理" class="headerlink" title="2、实现原理"></a>2、实现原理</h2><ol>
-<li>判断导航栏距离页面最上方的距离差大小</li>
-<li>添加或去除class</li>
-<li>同时避免因为切换fixed导致的高度塌陷</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>JavaScript30</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JavaScript30-25理解事件</title>
     <url>/javascript30-25%E7%90%86%E8%A7%A3%E4%BA%8B%E4%BB%B6.html</url>
     <content><![CDATA[<h1 id="JavaScript30个项目-25理解事件"><a href="#JavaScript30个项目-25理解事件" class="headerlink" title="JavaScript30个项目-25理解事件"></a>JavaScript30个项目-25理解事件</h1><h2 id="事件的默认顺序"><a href="#事件的默认顺序" class="headerlink" title="事件的默认顺序"></a>事件的默认顺序</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> boxes = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">boxClick</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">boxes.forEach(<span class="function"><span class="params">box</span> =&gt;</span> box.addEventListener(<span class="string">&#x27;click&#x27;</span>, boxClick))</span><br></pre></td></tr></table></figure>
@@ -286,21 +270,15 @@
       </tags>
   </entry>
   <entry>
-    <title>JavaScript30-27左右拖动效果</title>
-    <url>/javascript30-27%E5%B7%A6%E5%8F%B3%E6%8B%96%E5%8A%A8%E6%95%88%E6%9E%9C.html</url>
-    <content><![CDATA[<h1 id="JavaScript30个项目-27左右拖动效果"><a href="#JavaScript30个项目-27左右拖动效果" class="headerlink" title="JavaScript30个项目-27左右拖动效果"></a>JavaScript30个项目-27左右拖动效果</h1><h2 id="1、代码"><a href="#1、代码" class="headerlink" title="1、代码"></a>1、代码</h2><h3 id="在线浏览"><a href="#在线浏览" class="headerlink" title="在线浏览"></a>在线浏览</h3><p><a class="link"   href="https://codepen.io/zhangwh754/pen/mdWzyNV" >左右拖动效果 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> startX;</span><br><span class="line"><span class="keyword">let</span> isDown = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">let</span> startLeft;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> items = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.items&#x27;</span>)</span><br><span class="line">items.addEventListener(<span class="string">&#x27;mousedown&#x27;</span>, <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">  isDown = <span class="literal">true</span>;</span><br><span class="line">  items.classList.add(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">  startX = e.pageX - items.offsetLeft;</span><br><span class="line">  startLeft = items.scrollLeft;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">items.addEventListener(<span class="string">&#x27;mouseup&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  isDown = <span class="literal">false</span>;</span><br><span class="line">  items.classList.remove(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">items.addEventListener(<span class="string">&#x27;mouseleave&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  isDown = <span class="literal">false</span>;</span><br><span class="line">  items.classList.remove(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">items.addEventListener(<span class="string">&#x27;mousemove&#x27;</span>, <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span>(!isDown) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">let</span> x = e.pageX - items.offsetLeft;</span><br><span class="line">  <span class="keyword">const</span> slideMove = (x- startX) * <span class="number">2</span>;</span><br><span class="line">  items.scrollLeft = startLeft - slideMove;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+    <title>JavaScript30-24吸顶导航</title>
+    <url>/javascript30-24%E5%90%B8%E9%A1%B6%E5%AF%BC%E8%88%AA.html</url>
+    <content><![CDATA[<h1 id="JavaScript30个项目-24吸顶导航"><a href="#JavaScript30个项目-24吸顶导航" class="headerlink" title="JavaScript30个项目-24吸顶导航"></a>JavaScript30个项目-24吸顶导航</h1><h2 id="1、js代码"><a href="#1、js代码" class="headerlink" title="1、js代码"></a>1、js代码</h2><h3 id="在线浏览"><a href="#在线浏览" class="headerlink" title="在线浏览"></a>在线浏览</h3><p><a class="link"   href="https://codepen.io/zhangwh754/pen/jOBKQBq" >吸顶导航栏 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="Js代码"><a href="#Js代码" class="headerlink" title="Js代码"></a>Js代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> navBar = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#main&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> navBarTop = navBar.offsetTop;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fixNav</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(navBarTop, <span class="built_in">window</span>.scrollY);</span><br><span class="line">  <span class="keyword">if</span>(navBarTop &lt;= <span class="built_in">window</span>.scrollY) &#123;</span><br><span class="line">    <span class="built_in">document</span>.body.style.paddingTop = navBar.offsetHeight + <span class="string">&#x27;px&#x27;</span>;</span><br><span class="line">    <span class="built_in">document</span>.body.classList.add(<span class="string">&#x27;fixed-nav&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">document</span>.body.style.paddingTop = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">document</span>.body.classList.remove(<span class="string">&#x27;fixed-nav&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&#x27;scroll&#x27;</span>, fixNav);</span><br></pre></td></tr></table></figure>
 
 <h2 id="2、实现原理"><a href="#2、实现原理" class="headerlink" title="2、实现原理"></a>2、实现原理</h2><ol>
-<li>判断鼠标是否按下/在外围内</li>
-<li>如果满足条件,首先获得点击位置距离父盒子的左距离</li>
-<li>再同样获得拖动区域的左距离</li>
-<li>相减获得拖动的距离,赋值给scrollLeft属性达成拖动</li>
-<li>获得每次点击的scrollLeft,不会bug</li>
-</ol>
-<h2 id="3、用到的我目前待加强知识点"><a href="#3、用到的我目前待加强知识点" class="headerlink" title="3、用到的我目前待加强知识点"></a>3、用到的我目前待加强知识点</h2><ol>
-<li>页面的坐标</li>
-<li>scroll事件/属性</li>
+<li>判断导航栏距离页面最上方的距离差大小</li>
+<li>添加或去除class</li>
+<li>同时避免因为切换fixed导致的高度塌陷</li>
 </ol>
 ]]></content>
       <tags>
@@ -328,6 +306,28 @@
       </tags>
   </entry>
   <entry>
+    <title>JavaScript30-27左右拖动效果</title>
+    <url>/javascript30-27%E5%B7%A6%E5%8F%B3%E6%8B%96%E5%8A%A8%E6%95%88%E6%9E%9C.html</url>
+    <content><![CDATA[<h1 id="JavaScript30个项目-27左右拖动效果"><a href="#JavaScript30个项目-27左右拖动效果" class="headerlink" title="JavaScript30个项目-27左右拖动效果"></a>JavaScript30个项目-27左右拖动效果</h1><h2 id="1、代码"><a href="#1、代码" class="headerlink" title="1、代码"></a>1、代码</h2><h3 id="在线浏览"><a href="#在线浏览" class="headerlink" title="在线浏览"></a>在线浏览</h3><p><a class="link"   href="https://codepen.io/zhangwh754/pen/mdWzyNV" >左右拖动效果 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> startX;</span><br><span class="line"><span class="keyword">let</span> isDown = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">let</span> startLeft;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> items = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.items&#x27;</span>)</span><br><span class="line">items.addEventListener(<span class="string">&#x27;mousedown&#x27;</span>, <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">  isDown = <span class="literal">true</span>;</span><br><span class="line">  items.classList.add(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">  startX = e.pageX - items.offsetLeft;</span><br><span class="line">  startLeft = items.scrollLeft;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">items.addEventListener(<span class="string">&#x27;mouseup&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  isDown = <span class="literal">false</span>;</span><br><span class="line">  items.classList.remove(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">items.addEventListener(<span class="string">&#x27;mouseleave&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  isDown = <span class="literal">false</span>;</span><br><span class="line">  items.classList.remove(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">items.addEventListener(<span class="string">&#x27;mousemove&#x27;</span>, <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span>(!isDown) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">let</span> x = e.pageX - items.offsetLeft;</span><br><span class="line">  <span class="keyword">const</span> slideMove = (x- startX) * <span class="number">2</span>;</span><br><span class="line">  items.scrollLeft = startLeft - slideMove;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、实现原理"><a href="#2、实现原理" class="headerlink" title="2、实现原理"></a>2、实现原理</h2><ol>
+<li>判断鼠标是否按下/在外围内</li>
+<li>如果满足条件,首先获得点击位置距离父盒子的左距离</li>
+<li>再同样获得拖动区域的左距离</li>
+<li>相减获得拖动的距离,赋值给scrollLeft属性达成拖动</li>
+<li>获得每次点击的scrollLeft,不会bug</li>
+</ol>
+<h2 id="3、用到的我目前待加强知识点"><a href="#3、用到的我目前待加强知识点" class="headerlink" title="3、用到的我目前待加强知识点"></a>3、用到的我目前待加强知识点</h2><ol>
+<li>页面的坐标</li>
+<li>scroll事件/属性</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>JavaScript30</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaScript30-29网页计时器</title>
     <url>/javascript30-29%E7%BD%91%E9%A1%B5%E8%AE%A1%E6%97%B6%E5%99%A8.html</url>
     <content><![CDATA[<h1 id="JavaScript30个项目-29网页计时器"><a href="#JavaScript30个项目-29网页计时器" class="headerlink" title="JavaScript30个项目-29网页计时器"></a>JavaScript30个项目-29网页计时器</h1><h2 id="1、代码"><a href="#1、代码" class="headerlink" title="1、代码"></a>1、代码</h2><h3 id="在线浏览"><a href="#在线浏览" class="headerlink" title="在线浏览"></a>在线浏览</h3><p><a class="link"   href="https://codepen.io/zhangwh754/pen/abJQOwM" >网页计时器 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
@@ -345,6 +345,25 @@
 ]]></content>
       <tags>
         <tag>JavaScript30</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript30-2时钟</title>
+    <url>/javascript30-2%E6%97%B6%E9%92%9F.html</url>
+    <content><![CDATA[<h1 id="JavaScript30个项目-2时钟"><a href="#JavaScript30个项目-2时钟" class="headerlink" title="JavaScript30个项目-2时钟"></a>JavaScript30个项目-2时钟</h1><h2 id="1、时钟代码"><a href="#1、时钟代码" class="headerlink" title="1、时钟代码"></a>1、时钟代码</h2><h3 id="项目浏览"><a href="#项目浏览" class="headerlink" title="项目浏览"></a>项目浏览</h3><p><a class="link"   href="https://codepen.io/zhangwh754/pen/ExWZYmb" >简易时钟 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="css代码"><a href="#css代码" class="headerlink" title="css代码"></a>css代码</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.hand</span> &#123;</span><br><span class="line">    <span class="attribute">transform-origin</span>: <span class="number">100%</span>;//指针默认从<span class="number">100%</span>位置开始旋转</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">90deg</span>);//时钟指针默认<span class="number">12</span>点方向</span><br><span class="line">    <span class="attribute">transition</span>: all <span class="number">0.05s</span>;//平滑过渡</span><br><span class="line">    <span class="attribute">transition-timing-function</span>: <span class="built_in">cubic-bezier</span>(<span class="number">0.1</span>, <span class="number">2.7</span>, <span class="number">0.58</span>, <span class="number">1</span>);//平滑过渡</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> secondhand = <span class="built_in">document</span>.querySelector(<span class="string">&quot;.second-hand&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> minutehand = <span class="built_in">document</span>.querySelector(<span class="string">&quot;.min-hand&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> hourhand = <span class="built_in">document</span>.querySelector(<span class="string">&quot;.hour-hand&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setClock</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> time = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> seconds = time.getSeconds();</span><br><span class="line">    <span class="keyword">const</span> secondsDegree = (seconds * <span class="number">6</span>) + <span class="number">90</span>;</span><br><span class="line">    secondhand.style.transform = <span class="string">`rotate(<span class="subst">$&#123;secondsDegree&#125;</span>deg)`</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> minutes = time.getMinutes();</span><br><span class="line">    <span class="keyword">const</span> minutesDegree = (minutes * <span class="number">6</span>) + (seconds / <span class="number">60</span> * <span class="number">6</span>) + <span class="number">90</span>;</span><br><span class="line">    minutehand.style.transform = <span class="string">`rotate(<span class="subst">$&#123;minutesDegree&#125;</span>deg)`</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> hours = time.getHours();</span><br><span class="line">    <span class="keyword">const</span> hoursDegree = (hours * <span class="number">30</span>) + (minutes / <span class="number">60</span> * <span class="number">30</span>) + (seconds / <span class="number">3600</span> * <span class="number">30</span>) + <span class="number">90</span>;</span><br><span class="line">    hourhand.style.transform = <span class="string">`rotate(<span class="subst">$&#123;hoursDegree&#125;</span>deg)`</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">setInterval</span>(setClock, <span class="number">1000</span>);</span><br><span class="line">setClock();<span class="comment">//让页面第一秒时也能触发。</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2、实现原理"><a href="#2、实现原理" class="headerlink" title="2、实现原理"></a>2、实现原理</h2><p>控制.style.transform</p>
+<h2 id="3、用到的我目前待加强知识点"><a href="#3、用到的我目前待加强知识点" class="headerlink" title="3、用到的我目前待加强知识点"></a>3、用到的我目前待加强知识点</h2><ol>
+<li>date对象</li>
+<li>css:<code>transform</code></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>JavaScript30</tag>
+        <tag>Date</tag>
       </tags>
   </entry>
   <entry>
@@ -366,25 +385,6 @@
       <tags>
         <tag>JavaScript30</tag>
         <tag>dom</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JavaScript30-2时钟</title>
-    <url>/javascript30-2%E6%97%B6%E9%92%9F.html</url>
-    <content><![CDATA[<h1 id="JavaScript30个项目-2时钟"><a href="#JavaScript30个项目-2时钟" class="headerlink" title="JavaScript30个项目-2时钟"></a>JavaScript30个项目-2时钟</h1><h2 id="1、时钟代码"><a href="#1、时钟代码" class="headerlink" title="1、时钟代码"></a>1、时钟代码</h2><h3 id="项目浏览"><a href="#项目浏览" class="headerlink" title="项目浏览"></a>项目浏览</h3><p><a class="link"   href="https://codepen.io/zhangwh754/pen/ExWZYmb" >简易时钟 (codepen.io)<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="css代码"><a href="#css代码" class="headerlink" title="css代码"></a>css代码</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.hand</span> &#123;</span><br><span class="line">    <span class="attribute">transform-origin</span>: <span class="number">100%</span>;//指针默认从<span class="number">100%</span>位置开始旋转</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">90deg</span>);//时钟指针默认<span class="number">12</span>点方向</span><br><span class="line">    <span class="attribute">transition</span>: all <span class="number">0.05s</span>;//平滑过渡</span><br><span class="line">    <span class="attribute">transition-timing-function</span>: <span class="built_in">cubic-bezier</span>(<span class="number">0.1</span>, <span class="number">2.7</span>, <span class="number">0.58</span>, <span class="number">1</span>);//平滑过渡</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> secondhand = <span class="built_in">document</span>.querySelector(<span class="string">&quot;.second-hand&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> minutehand = <span class="built_in">document</span>.querySelector(<span class="string">&quot;.min-hand&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> hourhand = <span class="built_in">document</span>.querySelector(<span class="string">&quot;.hour-hand&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setClock</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> time = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> seconds = time.getSeconds();</span><br><span class="line">    <span class="keyword">const</span> secondsDegree = (seconds * <span class="number">6</span>) + <span class="number">90</span>;</span><br><span class="line">    secondhand.style.transform = <span class="string">`rotate(<span class="subst">$&#123;secondsDegree&#125;</span>deg)`</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> minutes = time.getMinutes();</span><br><span class="line">    <span class="keyword">const</span> minutesDegree = (minutes * <span class="number">6</span>) + (seconds / <span class="number">60</span> * <span class="number">6</span>) + <span class="number">90</span>;</span><br><span class="line">    minutehand.style.transform = <span class="string">`rotate(<span class="subst">$&#123;minutesDegree&#125;</span>deg)`</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> hours = time.getHours();</span><br><span class="line">    <span class="keyword">const</span> hoursDegree = (hours * <span class="number">30</span>) + (minutes / <span class="number">60</span> * <span class="number">30</span>) + (seconds / <span class="number">3600</span> * <span class="number">30</span>) + <span class="number">90</span>;</span><br><span class="line">    hourhand.style.transform = <span class="string">`rotate(<span class="subst">$&#123;hoursDegree&#125;</span>deg)`</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">setInterval</span>(setClock, <span class="number">1000</span>);</span><br><span class="line">setClock();<span class="comment">//让页面第一秒时也能触发。</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="2、实现原理"><a href="#2、实现原理" class="headerlink" title="2、实现原理"></a>2、实现原理</h2><p>控制.style.transform</p>
-<h2 id="3、用到的我目前待加强知识点"><a href="#3、用到的我目前待加强知识点" class="headerlink" title="3、用到的我目前待加强知识点"></a>3、用到的我目前待加强知识点</h2><ol>
-<li>date对象</li>
-<li>css:<code>transform</code></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>JavaScript30</tag>
-        <tag>Date</tag>
       </tags>
   </entry>
   <entry>
@@ -496,6 +496,41 @@
       <tags>
         <tag>JavaScript30</tag>
         <tag>Canvas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Js中bind和apply、call的区别</title>
+    <url>/js%E4%B8%ADbind%E5%92%8Capply%E3%80%81call%E7%9A%84%E5%8C%BA%E5%88%AB.html</url>
+    <content><![CDATA[<h2 id="Js中bind和apply、call的区别"><a href="#Js中bind和apply、call的区别" class="headerlink" title="Js中bind和apply、call的区别"></a>Js中bind和apply、call的区别</h2><h3 id="apply和call"><a href="#apply和call" class="headerlink" title="apply和call"></a>apply和call</h3><h4 id="apply和call的简单介绍"><a href="#apply和call的简单介绍" class="headerlink" title="apply和call的简单介绍"></a>apply和call的简单介绍</h4><p>接收的第一个参数是函数内this的指向</p>
+<p>apply第二个参数是数组实例或者arguments对象</p>
+<p>call第二个参数必须是逐个传递的（一个个写出来）</p>
+<p>不使用call和apply，需要把foo先赋值为o的属性，再进行调用o.foo()</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> o = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="string">&#x27;第一次绑定&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">t1, t2</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.a + t1 + t2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo(<span class="number">1</span>, <span class="number">1</span>) <span class="comment">//NaN</span></span><br><span class="line">foo.apply(o, [<span class="number">1</span>, <span class="number">1</span>])<span class="comment">//第一次绑定11</span></span><br><span class="line">foo.call(o, <span class="number">1</span>, <span class="number">1</span>)<span class="comment">//第一次绑定11</span></span><br></pre></td></tr></table></figure>
+
+<p>第一次foo调用，this指向window，而window上并不存在a，因此是undefined</p>
+<p>第二次foo调用，apply将this指向o</p>
+<p>第三次同，apply和call仅在传参上有区别</p>
+<h3 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h3><h4 id="传参方式"><a href="#传参方式" class="headerlink" title="传参方式"></a>传参方式</h4><p>🔥🔥🔥🔥bind是新创建一个与函数foo具有相同函数体和作用域的函数</p>
+<p>bind的第一个参数是函数内this的指向</p>
+<p>传参方式也有两种，一种是类似于call，逐个传递的（一个个写出来）</p>
+<p>因为bind是新创建一个与函数foo具有相同函数体和作用域的函数</p>
+<p>所以另一种传参方式是只写第一个this指向参数，不写第二个参数，在调用时再传参</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> o = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="string">&#x27;第一次绑定&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">t1, t2</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.a + t1 + t2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> test1 = foo.bind(o, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">test1()<span class="comment">//第一次绑定11</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> test3 = foo.bind(o)</span><br><span class="line">test3(<span class="number">1</span>, <span class="number">1</span>)<span class="comment">//第一次绑定11</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="bind将锁死this的指向"><a href="#bind将锁死this的指向" class="headerlink" title="bind将锁死this的指向"></a>bind将锁死this的指向</h4><p>🔥🔥🔥🔥但传参方式不是bind和aplly与call的最大不同</p>
+<p>🔥🔥🔥🔥使用bind后，新创建的改变this指向的函数的this将不再改变</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> o = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="string">&#x27;第一次绑定&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> h = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="string">&#x27;第二次绑定&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">t1, t2</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.a + t1 + t2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> test3 = foo.bind(o)</span><br><span class="line">test3(<span class="number">1</span>, <span class="number">1</span>)<span class="comment">//第一次绑定11</span></span><br><span class="line"><span class="keyword">let</span> test4 = test3.bind(h)</span><br><span class="line">test4(<span class="number">1</span>, <span class="number">1</span>)<span class="comment">//第一次绑定11</span></span><br></pre></td></tr></table></figure>
+
+<p>test4是test3使用bind后新创建的函数，test3正常指向我们期望的对象o，而test4并不指向我们期望的对象h，而还是输出o.a</p>
+<p>此外，不仅仅是bind，使用call、apply或直接给把foo赋值给对象都不再能改变this的指向</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">test3.call(h, <span class="number">1</span>, <span class="number">1</span>)<span class="comment">//第一次绑定11</span></span><br><span class="line">test3.apply(h, [<span class="number">1</span>, <span class="number">1</span>])<span class="comment">//第一次绑定11</span></span><br><span class="line">h.test3 = test3</span><br><span class="line">h.test3(<span class="number">1</span>, <span class="number">1</span>)<span class="comment">//第一次绑定11</span></span><br></pre></td></tr></table></figure>
+
+<p>🔥🔥🔥</p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>🔥🔥🔥</p>
+<p>除开传参方式，bind的最大区别是bind将会写死返回的新函数的this指向，使用bind、call、apply和对象赋值的方法均不能改变this指向。</p>
+]]></content>
+      <tags>
+        <tag>bind</tag>
       </tags>
   </entry>
   <entry>
